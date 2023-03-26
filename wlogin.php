@@ -41,8 +41,8 @@
             <label class="form-check-label" for="exampleCheck1">Remember Me</label>
           </div>
           <p>
-            If you forget your password
-            <a href="">forget password!</a>
+            If you forgot your password
+            <a href="">forgot password!</a>
           </p>
           <button id="worker-login" type="submit" class="btn btn-success">Login</button>
           <p class="text-center my-3">
