@@ -1,3 +1,7 @@
+<?php
+include("functions/connection.php");
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -66,10 +70,10 @@
                 </div>
                 <div class="modal-body">
                   <h4 class="text-center my-3">
-                    <a href="ulogin.html" class=" btn btn-warning px-5">User</a>
+                    <a href="ulogin.php" class=" btn btn-warning px-5">User</a>
                   </h4>
                   <h4 class="text-center my-3">
-                    <a href="wlogin.html" class=" btn btn-warning px-5">Worker</a>
+                    <a href="wlogin.php" class=" btn btn-warning px-5">Worker</a>
                   </h4>
                 </div>
                 <div class="modal-footer">

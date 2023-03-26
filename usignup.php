@@ -21,13 +21,12 @@
 </head>
 
 <body>
-
   <main>
     <section class="bg-gra">
       <div class="container d-flex flex-column min-vh-100 align-items-center justify-content-center">
         <div class="signup-content border border-warning white-bg p-5 bxSh rounded-5">
           <h4 class="text-center font-M fs-3 mb-5 color-beguni">User Signup</h4>
-          <form>
+          <form action="" method="post">
             <div class="mb-3">
               <label for="userFullname" class="form-label">Full Name</label>
               <input type="text" class="form-control input-border" id="userFullname" placeholder="Full Name">
@@ -95,7 +94,7 @@
             </div>
           </form>
           <p class="text-center my-3">
-            Already have an account? <a href="ulogin.html">Log in</a>
+            Already have an account? <a href="ulogin.php">Log in</a>
           </p>
         </div>
       </div>

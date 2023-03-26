@@ -47,7 +47,7 @@
           <button id="worker-login" type="submit" class="btn btn-success">Login</button>
           <p class="text-center my-3">
             I don't have an account
-            <a href="">Sign Up</a>
+            <a href="wsignup.php">Sign Up</a>
           </p>
         </div>
       </div>

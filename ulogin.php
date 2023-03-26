@@ -1,3 +1,17 @@
+<?php
+include("functions/connection.php");
+$connectionObj=new Main();
+if(isset($_POST['login'])){
+  // $email = $_POST['email'];
+  // $password = $_POST['password'];
+  // echo $email;
+  // echo $password;
+  $connectionObj->login($_POST);
+}
+    
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -27,28 +41,31 @@
       <div class="container d-flex flex-column vh-100 align-content-center justify-content-center">
         <div class="login-content border border-warning white-bg p-5 w-75 m-auto bxSh rounded-5">
           <h4 class="text-center font-M fs-3 mb-5 color-beguni">User Login</h4>
-          <div class="mb-3">
-            <label for="userEmail" class="form-label">Email address</label>
-            <input type="email" class="form-control input-border" id="userEmail" placeholder="name@gamil.com" aria-describedby="emailHelp">
-            <p id="email-warning" class=" text-danger d-none">Email Did not match</p>
-          </div>
-          <div class="mb-3">
-            <label for="userPassword" class="form-label">Password</label>
-            <input type="password" placeholder="********" class="form-control input-border" id="userPassword">
-            <p id="pass-warning" class=" text-danger d-none">Password Did not match</p>
-          </div>
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-          </div>
-          <p>
-            If you forget your password
-            <a href="">forget password!</a>
-          </p>
-          <button id="login" type="submit" class="btn btn-success">Login</button>
+          <form action="" method="post">
+            <div class="mb-3">
+              <label for="userEmail" class="form-label">Email address</label>
+              <input name="email" type="email" class="form-control input-border" id="userEmail" placeholder="name@gamil.com" aria-describedby="emailHelp">
+              <p id="email-warning" class=" text-danger d-none">Email Did not match</p>
+            </div>
+            <div class="mb-3">
+              <label for="userPassword" class="form-label">Password</label>
+              <input type="password" placeholder="********" class="form-control input-border" id="userPassword" name="password">
+              <p id="pass-warning" class=" text-danger d-none">Password Did not match</p>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+            </div>
+            <p>
+              If you forget your password
+              <a href="">forget password!</a>
+            </p>
+            <input type="submit" name="login" value="Login" id="login-btn" class="btn btn-success">
+            <!-- <button id="login" type="submit" class="btn btn-success">Login</button> -->
+          </form>
           <p class="text-center my-3">
             I don't have an account 
-            <a href="usignup.html">Sign Up</a>
+            <a href="usignup.php">Sign Up</a>
           </p>
         </div>
       </div>
@@ -63,5 +80,4 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
 </body>
-
 </html>
