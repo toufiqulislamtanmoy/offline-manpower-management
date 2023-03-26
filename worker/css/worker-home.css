@@ -1,0 +1,111 @@
+
+.prof-bg-gradient{
+    background-image: url('../img/gradient1.png');
+}
+.cursor-p{
+    cursor: pointer;
+}
+.fa-toggle-on{
+    color: #198754;
+    font-size: 1.5rem;
+}
+.fa-toggle-off{
+    /* color: #0D6EFD; */
+    color: gray;
+    font-size: 1.5rem;
+}
+.profile-image{
+    height: 260px;
+    width: 260px;
+   
+}
+.box-shadow{
+    box-shadow: 5px 10px 10px;
+}
+
+.custom-tab-style li{
+    list-style: none;
+    padding: 1rem;
+}
+
+.custom-tab-style li{
+    text-decoration: none;
+    color: white;
+}
+
+.custom-tab-style li:hover{
+    color: rgb(176, 157, 157);
+    cursor: pointer;
+}
+
+.custom-tab-style .active-tab{
+    background-color: red;
+
+}
+.custom-tab-style .active-tab:hover{
+    color: white;
+}
+
+.overview-card{
+    height: 20rem;
+    width: 20rem;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid gray;
+    margin-bottom: 2rem;
+    border-radius: 50%;
+}
+
+.card-gradient-1{
+    
+    background: linear-gradient(to bottom, #2f4941, #3b3939);
+
+    color: white;
+}
+
+/* Flex property */
+.d-flex-ac-jc-custom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.d-flex-ac-ja-custom{
+
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    gap: 2rem;
+}
+.d-flex-ac-js-custom{
+    display: flex;
+    align-items: center;
+    justify-content:left;
+    gap: 2rem;
+}
+.d-flex-ac-jsa-custom{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    gap: 2rem;
+}
+
+/* Review section */
+.review-bg{
+    background-color: #f1e1cd;
+}
+.review-details{
+    border: 1px solid #4EDEC1;
+    box-shadow: 3px 10px 20px;
+}
+
+/* Description section */
+#description-list li{
+    padding: 1rem;
+}
+
+

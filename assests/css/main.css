@@ -1,0 +1,201 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.bg-light-gray {
+    background-color: #D9D9D9;
+}
+
+.light-gray {
+    color: #D9D9D9;
+}
+
+.bg-card-black {
+    background-color: #2C4A63;
+}
+
+.bg-light-black {
+    background-color: #474748;
+}
+
+.mt-5rem {
+    margin-top: 5rem;
+}
+
+.mt-7rem {
+    margin-top: 7rem;
+}
+
+.mt-10rem {
+    margin-top: 10rem;
+}
+
+.font-TIT {
+    font-family: 'Tilt Prism', cursive;
+}
+
+.font-M {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.color-org {
+    color: orange;
+}
+
+.color-beguni {
+    color: #6763E7;
+}
+
+.h-vh-5 {
+    height: 40vh;
+}
+
+.h-vh-10 {
+    height: 40vh;
+}
+
+.h-vh-20 {
+    height: 40vh;
+}
+
+.h-vh-30 {
+    height: 40vh;
+}
+
+.h-vh-40 {
+    height: 40vh;
+}
+
+.h-vh-50 {
+    height: 40vh;
+}
+
+.h-vh-60 {
+    height: 40vh;
+}
+
+.h-vh-70 {
+    height: 40vh;
+}
+
+.h-vh-80 {
+    height: 40vh;
+}
+
+.h-vh-90 {
+    height: 40vh;
+}
+
+.c-w-30 {
+    width: 75%;
+}
+
+.c-w-40 {
+    width: 75%;
+}
+
+.c-w-50 {
+    width: 75%;
+}
+
+.c-w-75 {
+    width: 75%;
+}
+
+.white-bg {
+    background-color: white;
+}
+
+.bxSh {
+    box-shadow: 70px 35px 50px;
+}
+
+/* Home page Banner */
+.bgimg {
+    height: 60vh;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
+        url('../img/banner1.webp') center center/cover no-repeat;
+}
+
+
+@media screen and (max-width:500px) {
+    .bgimg {
+        height: 100vh !important;
+    }
+
+    .c-w-75 {
+        font-size: 1rem !important;
+        width: 95%;
+    }
+}
+
+/* Home page Service */
+.over-content {
+    height: 120px;
+    /* set the desired fixed height */
+    overflow-y: scroll;
+    /* add a scrollbar in the y-axis */
+}
+
+.over-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* Home page our team */
+.prof-img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+/* Carasol Height and width control */
+.c-img-h {
+    height: 400px;
+    width: 100%;
+}
+
+
+/* User login bg gradient  style*/
+
+.bg-gra {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
+        url('../img/gradent/bg-01.jpg') center center/cover no-repeat;
+}
+
+
+
+/* User loging width content */
+
+@media screen and (max-width:600px) {
+
+    .login-content {
+        width: 100% !important;
+    }
+}
+
+/* Input field border style */
+.input-border {
+    outline: none !important;
+    border: none;
+    border-bottom: 1px solid #6763E7;
+}
+
+/* Sign up width controler */
+.signup-content {
+    border: 1px solid #ffc107;
+    background-color: #fff;
+    padding: 5rem;
+    border-radius: 0.5rem;
+}
+
+@media screen and (min-width: 992px) {
+    .signup-content {
+      width: 60%;
+    }
+  }
+  
+  @media screen and (max-width: 991px) {
+    .signup-content {
+      width: 100%;
+    }
+  }
