@@ -1,0 +1,135 @@
+[
+    {
+      "id": 1,
+      "name": "Md. Abdul Ali",
+      "address": "5/A, Mymensingh Road, Dhaka",
+      "phone": "+8801712345678",
+      "nationalId": "1987654321987",
+      "type": "Electrician",
+      "industry": "Construction",
+      "rating": 4.5,
+      "gender": "Male"
+    },
+    {
+      "id": 2,
+      "name": "Abdul Haque",
+      "address": "2/B, Mirpur Road, Dhaka",
+      "phone": "+8801712345679",
+      "nationalId": "1234567891234",
+      "type": "Plumber",
+      "industry": "Construction",
+      "rating": 4.2,
+      "gender": "Male"
+    },
+    {
+      "id": 3,
+      "name": "Md. Ali Ahmed",
+      "address": "12, Baridhara, Dhaka",
+      "phone": "+8801712345680",
+      "nationalId": "7654321098765",
+      "type": "Carpenter",
+      "industry": "Construction",
+      "rating": 3.9,
+      "gender": "Male"
+    },
+    {
+      "id": 4,
+      "name": "Rafiqul Islam",
+      "address": "15, Uttara, Dhaka",
+      "phone": "+8801712345681",
+      "nationalId": "2345678912345",
+      "type": "Mechanic",
+      "industry": "Automotive",
+      "rating": 4.1,
+      "gender": "Male"
+    },
+    {
+      "id": 5,
+      "name": "Nasreen Akhter",
+      "address": "7, Green Road, Dhaka",
+      "phone": "+8801712345682",
+      "nationalId": "6789012345678",
+      "type": "Cook",
+      "industry": "Food Service",
+      "rating": 4.7,
+      "gender": "Female"
+    },
+    {
+      "id": 6,
+      "name": "Kamal Hossain",
+      "address": "10/B, Banani, Dhaka",
+      "phone": "+8801712345683",
+      "nationalId": "5432109876543",
+      "type": "Painter",
+      "industry": "Construction",
+      "rating": 4.0,
+      "gender": "Male"
+    },
+    {
+      "id": 7,
+      "name": "Shaheda Begum",
+      "address": "15, Dhanmondi, Dhaka",
+      "phone": "+8801712345684",
+      "nationalId": "9876543210987",
+      "type": "Housekeeper",
+      "industry": "Hospitality",
+      "rating": 4.6,
+      "gender": "Female"
+    },
+    {
+        "id": 8,
+        "name": "Rahim Uddin",
+        "address": "12, Rajshahi Road, Rajshahi",
+        "phone": "+8801712345686",
+        "nationalId": "3456789123456",
+        "type": "Electrician",
+        "industry": "Construction",
+        "rating": 4.3,
+        "gender": "Male"
+      },
+      {
+        "id": 9,
+        "name": "Fatima Begum",
+        "address": "45, Rajshahi Bypass Road, Rajshahi",
+        "phone": "+8801712345687",
+        "nationalId": "7890123456789",
+        "type": "Plumber",
+        "industry": "Construction",
+        "rating": 4.1,
+        "gender": "Female"
+      },
+      {
+        "id": 10,
+        "name": "Siddique Rahman",
+        "address": "22/A, University More, Rajshahi",
+        "phone": "+8801712345688",
+        "nationalId": "6543210987654",
+        "type": "Carpenter",
+        "industry": "Construction",
+        "rating": 4.4,
+        "gender": "Male"
+      },
+      {
+        "id": 11,
+        "name": "Ayesha Khanam",
+        "address": "33, Vuter Goli, Rajshahi",
+        "phone": "+8801712345689",
+        "nationalId": "1234567890123",
+        "type": "Cook",
+        "industry": "Food Service",
+        "rating": 4.8,
+        "gender": "Female"
+      },
+      {
+        "id": 12,
+        "name": "Mahmud Hasan",
+        "address": "5, Rajshahi Court Road, Rajshahi",
+        "phone": "+8801712345690",
+        "nationalId": "4567891234567",
+        "type": "Painter",
+        "industry": "Construction",
+        "rating": 4.2,
+        "gender": "Male"
+      }
+  ]
+  

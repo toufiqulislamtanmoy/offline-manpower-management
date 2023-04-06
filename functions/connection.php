@@ -29,26 +29,21 @@ class Main{
     function login($data){
         $userEmail = $data['email'];
         $userPassword= $data['password'];
-        echo $userEmail;
-        echo $userPassword;
         $query="SELECT * FROM usersignup where  userEmail='$userEmail' AND userPassword='$userPassword'";
         $loginInfo=mysqli_query($this->conn,$query);
-        if (!$loginInfo) {
+        if (!$loginInfo || mysqli_num_rows($loginInfo) == 0) {
             ?>
             <script>
-                alart('User Not valid');
+                alert('Enter Valid Username or Password');
             </script>
             <?php
-
-        }else{
+        } else {
             while ($row = mysqli_fetch_assoc($loginInfo)) {
-                $row['userEmail'] ;
-                $row['userPassword'];
                 echo "<script>window.location.replace('user/index.html');</script>";
             }
         }
-        
     }
+    
 }
 
 ?>

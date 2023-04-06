@@ -2,10 +2,6 @@
 include("functions/connection.php");
 $connectionObj=new Main();
 if(isset($_POST['login'])){
-  // $email = $_POST['email'];
-  // $password = $_POST['password'];
-  // echo $email;
-  // echo $password;
   $connectionObj->login($_POST);
 }
     
