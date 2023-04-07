@@ -107,5 +107,26 @@
 #description-list li{
     padding: 1rem;
 }
+.reward-points {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #020202;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #dcd54a;
+    font-weight: bold;
+  }
+  
+  .reward-points p {
+    margin: 0;
+  }
+  
+  .reward-points i {
+    margin-right: 5px;
+  }
+
 
 
