@@ -4,7 +4,6 @@ $connectionObj=new Main();
 if(isset($_POST['login'])){
   $connectionObj->login($_POST);
 }
-    
 
 ?>
 

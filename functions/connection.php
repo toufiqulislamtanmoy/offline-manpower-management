@@ -39,7 +39,7 @@ class Main{
             <?php
         } else {
             while ($row = mysqli_fetch_assoc($loginInfo)) {
-                echo "<script>window.location.replace('user/index.html');</script>";
+                echo "<script>window.location.replace('user/home.php');</script>";
             }
         }
     }
