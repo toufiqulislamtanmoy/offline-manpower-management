@@ -20,40 +20,56 @@
 </head>
 
 <body class="">
-  <section class="worker-profile-container py-xl-5 d-flex-ac-ja-custom ps-3 pe-3 prof-bg-gradient py-sm-4">
-    <div class="d-flex-ac-jc-custom">
-      <div class="profile-image rounded-circle box-shadow">
-        <img class="w-100 rounded-circle" src="img/3.jpg" alt="">
-      </div>
-      <div class="worker-details-container text-primary font-M">
-        <h1 class="worker-name font-M">Toufiqul Islam Tanmoy</h1>
-        <div class="worker-details">
-          <h4>Mason</h4>
-          <p>+88018xxxxx</p>
-          <p><span><i class="text-danger fa-solid fa-location-dot"></i></span> Rajshahi, Bangladesh</p>
-          <p id="active-status" class="d-flex gap-3">Status:
-            <i id="" class="fa-solid fa-toggle-on cursor-p d-none "></i>
-            <i id="" class="fa-solid fa-toggle-off cursor-p"></i>
-          </p>
+  <section class="worker-profile-container py-5 px-3 py-sm-4">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-3 col-md-4 col-sm-12 mb-3 mb-md-0 ">
+          <div class="profile-image rounded-circle">
+            <img class="w-100 rounded-circle" src="img/3.jpg" alt="">
+          </div>
         </div>
-        <div class="update-logout-btn-container">
-          <p class="text-success cursor-p">Update Profile <i class="fa-regular fa-pen-to-square"></i></p>
-          <p class="text-danger cursor-p">Logout <i class="fa-solid fa-right-from-bracket"></i></p>
+        <div class="col-lg-6 col-md-8 col-sm-12 mb-3 mb-md-0">
+          <div class="worker-details-container text-primary ms-sm-5">
+            <h1 class="worker-name mb-3 font-M">Toufiqul Islam Tanmoy</h1>
+            <div class="worker-details mb-3">
+              <h4 class="mb-1 font-monospace fw-bold">Mason</h4>
+              <p class="mb-1">+88018xxxxx</p>
+              <p class="mb-0"><span><i class="text-danger bi bi-geo-alt-fill"></i></span> Rajshahi, Bangladesh</p>
+              <div class="row mt-4">
+                <div class="col-12">
+                  <p id="active-status" class="gap-3 d-inline">Status:
+                    <i id="" class="fa-solid fa-toggle-on cursor-p d-none"></i>
+                    <i id="" class="fa-solid fa-toggle-off cursor-p"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="update-logout-btn-container">
+              <button class="fs-5 d-block my-2 text-success bg-transparent border-0 m-0">Update Profile <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+              <button class="fs-5 d-block my-2 text-danger bg-transparent border-0">Logout<i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+            </div>
+          </div>
+        </div>
+        <!-- Total Earnings -->
+        <div class="col-lg-3 col-md-12 col-sm-12">
+          <div class="total-earning">
+            <div class="overview-card box-shadow mt-5">
+              <h4 class="title mb-3 font-M"><i class="fa-solid fa-sack-dollar"></i> Total Earnings</h4>
+              <h1 class="mb-0"><i class="fa-solid fa-bangladeshi-taka-sign"></i> 3450</h1>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="total-earning">
-      <div class="overview-card card-gradient-1">
-        <h4 class="title">Total Earnings</h4>
-        <h1><i class="fa-solid fa-bangladeshi-taka-sign"></i> 3445 <i class="fa-solid fa-sack-dollar"></i></h1>
-      </div>
     </div>
-
     <div class="reward-points">
-      <p><i class="fas fa-gift"></i>Reward Points: 100</p>
-    </div>
+      <p class="fs-4"><i class="fas fa-gift"></i>Reward Points: 100</p>
+  </div>
   </section>
+
+
+
+
 
   <section class="bg-dark pe-4">
     <ul id="tab-li-container" class="text-center custom-tab-style d-lg-flex align-items-center justify-content-center">
