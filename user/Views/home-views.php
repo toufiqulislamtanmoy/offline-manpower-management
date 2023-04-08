@@ -219,7 +219,7 @@
             <h5 class=" text-center light-gray font-M">Name: ${singleData.name} </h5>
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="" class="img-fluid rounded-start" alt="Image not found">
+                <img src=${profile-image} class="img-fluid rounded-start" alt="Image not found">
                 <h6 class="light-gray mt-3 text-center">Industris: ${singleData.industry} </h6>
               </div>
               <div class="col-md-8">
