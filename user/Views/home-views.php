@@ -9,7 +9,11 @@
       "industry": "Construction",
       "rating": 4.5,
       "gender": "Male",
+<<<<<<< HEAD
       "profile-image": "https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+=======
+      "profileImage": ""
+>>>>>>> f6736781953e68a788980e29af9f01908801ae45
     },
     {
       "id": 2,
@@ -21,7 +25,7 @@
       "industry": "Construction",
       "rating": 4.2,
       "gender": "Male",
-      "profile-image": ""
+      "profileImage": ""
     },
     {
       "id": 3,
@@ -33,7 +37,7 @@
       "industry": "Construction",
       "rating": 3.9,
       "gender": "Male",
-      "profile-image": ""
+      "profileImage": ""
     },
     {
       "id": 4,
@@ -45,7 +49,7 @@
       "industry": "Automotive",
       "rating": 4.1,
       "gender": "Male",
-      "profile-image": ""
+      "profileImage": ""
     },
     {
       "id": 5,
@@ -57,7 +61,7 @@
       "industry": "Food Service",
       "rating": 4.7,
       "gender": "Female",
-      "profile-image": ""
+      "profileImage": ""
     },
     {
       "id": 6,
@@ -69,7 +73,7 @@
       "industry": "Construction",
       "rating": 4.0,
       "gender": "Male",
-      "profile-image": ""
+      "profileImage": ""
     },
     {
       "id": 7,
@@ -81,7 +85,7 @@
       "industry": "Hospitality",
       "rating": 4.6,
       "gender": "Female",
-      "profile-image": ""
+      "profileImage": ""
     },
     {
       "id": 8,
@@ -93,7 +97,7 @@
       "industry": "Construction",
       "rating": 4.3,
       "gender": "Male",
-      "profile-image": ""
+      "profileImage": ""
     },
     {
       "id": 9,
@@ -105,7 +109,7 @@
       "industry": "Construction",
       "rating": 4.1,
       "gender": "Female",
-      "profile-image": ""
+      "profileImage": ""
     },
     {
       "id": 10,
@@ -117,7 +121,7 @@
       "industry": "Construction",
       "rating": 4.4,
       "gender": "Male",
-      "profile-image": ""
+      "profileImage": ""
     },
     {
       "id": 11,
@@ -129,7 +133,7 @@
       "industry": "Food Service",
       "rating": 4.8,
       "gender": "Female",
-      "profile-image": ""
+      "profileImage": ""
     },
     {
       "id": 12,
@@ -141,7 +145,7 @@
       "industry": "Construction",
       "rating": 4.2,
       "gender": "Male",
-      "profile-image": ""
+      "profileImage": ""
     },
     {
       "id": 13,
@@ -153,7 +157,7 @@
       "industry": "Construction",
       "rating": 4.2,
       "gender": "Male",
-      "profile-image": ""
+      "profileImage": ""
     }, {
       "id": 14,
       "name": "Ayesha Akter",
@@ -164,7 +168,7 @@
       "industry": "Construction",
       "rating": 4.5,
       "gender": "Female",
-      "profile-image": ""
+      "profileImage": ""
     }, {
       "id": 15,
       "name": "Hasan Ali",
@@ -175,7 +179,7 @@
       "industry": "Construction",
       "rating": 4.1,
       "gender": "Male",
-      "profile-image": ""
+      "profileImage": ""
     }, {
       "id": 16,
       "name": "Mohammed Rahman",
@@ -186,7 +190,7 @@
       "industry": "Construction",
       "rating": 4.0,
       "gender": "Male",
-      "profile-image": ""
+      "profileImage": ""
     }, 
     {
       "id": 17,
@@ -198,7 +202,7 @@
       "industry": "Construction",
       "rating": 4.4,
       "gender": "Female",
-      "profile-image": ""
+      "profileImage": ""
     }
   ]
 
@@ -219,7 +223,7 @@
             <h5 class=" text-center light-gray font-M">Name: ${singleData.name} </h5>
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="" class="img-fluid rounded-start" alt="Image not found">
+                <img src=${singleData.profileImage} class="img-fluid rounded-start" alt="Image not found">
                 <h6 class="light-gray mt-3 text-center">Industris: ${singleData.industry} </h6>
               </div>
               <div class="col-md-8">
