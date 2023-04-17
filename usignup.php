@@ -1,3 +1,12 @@
+<?php
+include("functions/connection.php");
+$connectionObj=new Main();
+if(isset($_POST['signup'])){
+  $connectionObj->user_signup($_POST);
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -26,72 +35,44 @@
       <div class="container d-flex flex-column min-vh-100 align-items-center justify-content-center">
         <div class="signup-content border border-warning white-bg p-5 bxSh rounded-5">
           <h4 class="text-center font-M fs-3 mb-5 color-beguni">User Signup</h4>
-          <form action="" method="post">
+          <form action="" method="post" enctype="multipart/form-data">
             <div class="mb-3">
               <label for="userFullname" class="form-label">Full Name</label>
-              <input type="text" class="form-control input-border" id="userFullname" placeholder="Full Name">
+              <input required type="text" class="form-control input-border" id="userFullname" placeholder="Full Name" name="userFullname" value="<?php if(isset($_POST['userFullname'])) echo $_POST['userFullname'] ?>">
+            </div>
+            <div class="mb-3">
+              <label for="userProfile" class="form-label">Profile</label>
+              <input required type="file" class="form-control input-border" id="userProfile" name="userProfile">
             </div>
             <div class="mb-3">
               <label for="userNid" class="form-label">NID Number</label>
-              <input type="text" class="form-control input-border" id="userNid" placeholder="NID Card Number">
-            </div>
-            <div class="mb-3 row">
-              <label for="userGender" class="col-sm-2 col-form-label">Gender: </label>
-              <div class="col-sm-10">
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="gender" id="male" value="male">
-                  <label class="form-check-label" for="male">
-                    Male
-                  </label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                  <label class="form-check-label" for="female">
-                    Female
-                  </label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="gender" id="other" value="other">
-                  <label class="form-check-label" for="other">
-                    Other
-                  </label>
-                </div>
-              </div>
-            </div>
-            
-            
+              <input required type="text" class="form-control input-border" id="userNid" placeholder="NID Card Number" name="userNID" value="<?php if(isset($_POST['userNID'])) echo $_POST['userNID'] ?>">
+            </div>            
             
             <div class="mb-3">
               <label for="userPhone" class="form-label">Phone Number</label>
-              <input type="text" class="form-control input-border" id="userPhone" placeholder="+8801825xxxx">
+              <input required type="text" class="form-control input-border" id="userPhone" placeholder="+8801825xxxx" name="userPhoneNumber" value="<?php if(isset($_POST['userPhoneNumber'])) echo $_POST['userPhoneNumber'] ?>">
             </div>
             <div class="mb-3">
               <label for="userAddress" class="form-label">Address</label>
-              <input type="text" class="form-control input-border" id="userAddress" placeholder="Address">
+              <input required type="text" class="form-control input-border" id="userAddress" placeholder="Address" name="userAddress" value="<?php if(isset($_POST['userAddress'])) echo $_POST['userAddress'] ?>">
             </div>
             <div class="mb-3">
               <label for="userEmail" class="form-label">Email Address</label>
-              <input type="email" class="form-control input-border" id="userEmail" placeholder="name@gamil.com">
+              <input required type="email" class="form-control input-border" id="userEmail" placeholder="name@gamil.com" name="userEmail" value="<?php if(isset($_POST['userEmail'])) echo $_POST['userEmail'] ?>">
               <p id="email-warning" class="text-danger d-none">Please enter a valid email address</p>
             </div>
             <div class="mb-3">
               <label for="userPassword" class="form-label">Password</label>
-              <input type="password" placeholder="********" class="form-control input-border" id="userPassword">
+              <input required type="password" placeholder="********" class="form-control input-border" id="userPassword" name="userPassword" value="<?php if(isset($_POST['userPassword'])) echo $_POST['userPassword'] ?>">
               <p id="pass-warning" class="text-danger d-none">Passwords do not match</p>
             </div>
             <div class="mb-3">
               <label for="userConfirmPassword" class="form-label">Confirm Password</label>
-              <input type="password" placeholder="********" class="form-control input-border" id="userConfirmPassword">
+              <input required type="password" placeholder="********" class="form-control input-border" id="userConfirmPassword" name="userConfrimPassword" value="<?php if(isset($_POST['userConfrimPassword'])) echo $_POST['userConfrimPassword'] ?>">
               <p id="pass-confirm-warning" class="text-danger d-none">Passwords do not match</p>
             </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-            </div>
-            <div class="text-center">
-              <p>If you forget your password, <a href="#">click here</a></p>
-              <button id="Signup" type="submit" class="btn btn-success">Signup</button>
-            </div>
+            <input type="submit" value="Sign Up" name="signup" class="btn btn-success">
           </form>
           <p class="text-center my-3">
             Already have an account? <a href="ulogin.php">Log in</a>
