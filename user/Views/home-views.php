@@ -9,11 +9,7 @@
       "industry": "Construction",
       "rating": 4.5,
       "gender": "Male",
-<<<<<<< HEAD
       "profile-image": "https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-=======
-      "profileImage": ""
->>>>>>> f6736781953e68a788980e29af9f01908801ae45
     },
     {
       "id": 2,
