@@ -2,7 +2,7 @@
 include("functions/connection.php");
 $connectionObj=new Main();
 if(isset($_POST['login'])){
-  $connectionObj->login($_POST);
+  $connectionObj->user_login($_POST);
 }
 
 ?>

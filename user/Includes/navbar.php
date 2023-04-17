@@ -45,6 +45,9 @@
                   <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Log Out</a>
+              </li>
             </ul>
             <form class="d-flex mt-3" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
