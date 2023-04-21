@@ -53,6 +53,37 @@ include("functions/connection.php");
               <a class="nav-link" href="#contact">Contact US</a>
             </li>
           </ul>
+          <!-- SIghnup Button Starts from here -->
+          <button type="button" class="btn btn-info text-white button_10"  data-bs-toggle="modal" data-bs-target="#login-preview">
+            Sign Up
+          </button>
+          <!-- CLicking options starts from Here -->
+          <!-- login option preview -->
+          <!-- Modal -->
+          <div class="modal fade" id="login-preview" tabindex="-1" aria-labelledby="login-previewLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="login-previewLabel">Choose Signup Account Type</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <h4 class="text-center my-3">
+                    <a href="usignup.php" class=" btn btn-warning px-5">User</a>
+                  </h4>
+                  <h4 class="text-center my-3">
+                    <a href="wsignup.php" class=" btn btn-warning px-5">Worker</a>
+                  </h4>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#login-preview">
             Login
