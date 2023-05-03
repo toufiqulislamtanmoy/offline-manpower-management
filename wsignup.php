@@ -2,7 +2,7 @@
 include("functions/connection.php");
 $connectionObj=new Main();
 if(isset($_POST['signup'])){
-  $connectionObj->user_signup($_POST);
+  $connectionObj->worker_signup($_POST);
 }
 
 ?>
@@ -37,8 +37,8 @@ if(isset($_POST['signup'])){
           <h4 class="text-center font-M fs-3 mb-5 color-beguni">User Signup</h4>
           <form action="" method="post" enctype="multipart/form-data">
             <div class="mb-3">
-              <label for="woekerFullname" class="form-label">Full Name</label>
-              <input required type="text" class="form-control input-border" id="woekerFullname" placeholder="Enter Fullname (According To your NID)" name="workerFullname" value="<?php if(isset($_POST['woekerFullname'])) echo $_POST['woekerFullname'] ?>">
+              <label for="workerFullname" class="form-label">Full Name</label>
+              <input required type="text" class="form-control input-border" id="workerFullname" placeholder="Enter Fullname (According To your NID)" name="workerFullname" value="<?php if(isset($_POST['workerFullname'])) echo $_POST['workerFullname'] ?>">
             </div>
             <div class="mb-3">
               <label for="fatherName" class="form-label">Father's Name</label>
