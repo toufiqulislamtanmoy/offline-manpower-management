@@ -171,7 +171,7 @@ class Main
                     <script>
                         alert("An error occur please try again later");
                     </script>
-<?php
+                <?php
                 }
             }
         }
@@ -209,7 +209,7 @@ class Main
             'wprofile_pic' => 'Please Add your profile image',
         );
 
-        
+
 
         if (empty($workerFullname)) {
             $fieldErrors = $errors['workerFullname'];
@@ -227,7 +227,7 @@ class Main
             $fieldErrors = $errors['wprofile_pic'];
             return $fieldErrors;
         }
-        
+
 
         if (empty($workerNid)) {
             $fieldErrors = $errors['workerNid'];
@@ -262,7 +262,7 @@ class Main
             return $fieldErrors;
         }
 
-        
+
 
         // Validate password format
         $uppercase = preg_match('@[A-Z]@', $workerPassword);
@@ -279,11 +279,29 @@ class Main
             return "Password must be at least 8 characters long.";
         } else if ($workerPassword != $workerConfrimPassword) {
             return "Password and Confirm Password do not match.";
+        } else {
+            if ($img_extention == "jpg" || $img_extention == "jepg" || $img_extention == "png") {
+                $query = "INSERT INTO workersignup(worker_full_name,father_name,date_of_birth,worker_photo,nid_number,worker_phone_number,present_address,parmanennt_address,worker_password,worker_status,worker_email) VALUES('$workerFullname','$fatherName','$dob','$prof_img_name','$workerNid','$workerPhone','$workerAddrss','$workerPAddrss','$workerPassword',1,'$workerEmail')";
+
+                $insert_data = mysqli_query($this->conn, $query);
+
+                if ($insert_data) {
+                    move_uploaded_file($prof_img_temp_name, 'worker/upload' . $prof_img_name);
+                    ?>
+                    <script>
+                        alert("Account Created Successfully");
+                        window.location.replace('wlogin.php');
+                    </script>
+                    <?php
+                } else {
+                ?>
+                    <script>
+                        alert("An error occur please try again later");
+                    </script>
+<?php
+                }
+            }
         }
-        
-
-        // Set the variables to be used in the JavaScript code
-
     }
 }
 
