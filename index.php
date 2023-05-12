@@ -54,18 +54,18 @@ include("functions/connection.php");
             </li>
           </ul>
           <!-- SIghnup Button Starts from here -->
-          <button type="button" class="btn btn-info text-white button_10"  data-bs-toggle="modal" data-bs-target="#login-preview">
+          <button type="button" class="btn btn-info text-white me-2"  data-bs-toggle="modal" data-bs-target="#signupPreview">
             Sign Up
           </button>
           <!-- CLicking options starts from Here -->
           <!-- login option preview -->
           <!-- Modal -->
-          <div class="modal fade" id="login-preview" tabindex="-1" aria-labelledby="login-previewLabel"
+          <div class="modal fade" id="signupPreview" tabindex="-1" aria-labelledby="signupPreviewLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="login-previewLabel">Choose Signup Account Type</h1>
+                  <h1 class="modal-title fs-5" id="signupPreviewLabel">Choose Signup Account Type</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -85,7 +85,7 @@ include("functions/connection.php");
 
 
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#login-preview">
+          <button type="button" class="ms-2 btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#login-preview">
             Login
           </button>
 

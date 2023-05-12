@@ -34,7 +34,7 @@ if(isset($_POST['signup'])){
     <section class="bg-gra">
       <div class="container d-flex flex-column min-vh-100 align-items-center justify-content-center">
         <div class="signup-content border border-warning white-bg p-5 bxSh rounded-5">
-          <h4 class="text-center font-M fs-3 mb-5 color-beguni">User Signup</h4>
+          <h4 class="text-center font-M fs-3 mb-5 color-beguni">Worker Signup</h4>
           <form action="" method="post" enctype="multipart/form-data">
             <div class="mb-3">
               <label for="userFullname" class="form-label">Full Name</label>

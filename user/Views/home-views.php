@@ -238,7 +238,7 @@
                   </address>
 
                   <div>
-                    <button class="btn btn-warning px-3 py-2 mt-3 font-M"><i class="fa-regular fa-eye"></i> View Profile</button>
+                    <a href="fff?id=${singleData.id}" class="btn btn-warning px-3 py-2 mt-3 font-M"><i class="fa-regular fa-eye"></i> View Profile</a>
                   </div>
                 </div>
               </div>
