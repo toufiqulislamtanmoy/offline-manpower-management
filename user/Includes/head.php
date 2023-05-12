@@ -21,6 +21,8 @@
     rel="stylesheet">
   <!-- Font awesome cdn -->
   <script src="https://kit.fontawesome.com/2137699d39.js" crossorigin="anonymous"></script>
+
+
   <!-- My custom css -->
   <link rel="stylesheet" href="../assests/css/main.css">
   <link rel="stylesheet" href="/user/css/main.css">
