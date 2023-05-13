@@ -9,7 +9,7 @@
       "industry": "Construction",
       "rating": 4.5,
       "gender": "Male",
-      "profile-image": "https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
     },
     {
       "id": 2,
@@ -21,7 +21,7 @@
       "industry": "Construction",
       "rating": 4.2,
       "gender": "Male",
-      "profileImage": ""
+      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
     },
     {
       "id": 3,
@@ -33,7 +33,7 @@
       "industry": "Construction",
       "rating": 3.9,
       "gender": "Male",
-      "profileImage": ""
+      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
     },
     {
       "id": 4,
@@ -45,7 +45,7 @@
       "industry": "Automotive",
       "rating": 4.1,
       "gender": "Male",
-      "profileImage": ""
+      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
     },
     {
       "id": 5,
@@ -57,7 +57,7 @@
       "industry": "Food Service",
       "rating": 4.7,
       "gender": "Female",
-      "profileImage": ""
+      "profileImage": "https://thumbs.dreamstime.com/b/female-chef-12368856.jpg"
     },
     {
       "id": 6,
@@ -69,7 +69,7 @@
       "industry": "Construction",
       "rating": 4.0,
       "gender": "Male",
-      "profileImage": ""
+      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
     },
     {
       "id": 7,
@@ -81,7 +81,7 @@
       "industry": "Hospitality",
       "rating": 4.6,
       "gender": "Female",
-      "profileImage": ""
+      "profileImage": "https://thumbs.dreamstime.com/b/female-chef-12368856.jpg"
     },
     {
       "id": 8,
@@ -93,7 +93,7 @@
       "industry": "Construction",
       "rating": 4.3,
       "gender": "Male",
-      "profileImage": ""
+      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
     },
     {
       "id": 9,
@@ -105,7 +105,7 @@
       "industry": "Construction",
       "rating": 4.1,
       "gender": "Female",
-      "profileImage": ""
+      "profileImage": "https://st2.depositphotos.com/2090205/7693/i/950/depositphotos_76931933-stock-photo-good-looking-construction-worker.jpg"
     },
     {
       "id": 10,
@@ -117,7 +117,7 @@
       "industry": "Construction",
       "rating": 4.4,
       "gender": "Male",
-      "profileImage": ""
+      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
     },
     {
       "id": 11,
@@ -129,7 +129,7 @@
       "industry": "Food Service",
       "rating": 4.8,
       "gender": "Female",
-      "profileImage": ""
+      "profileImage": "https://thumbs.dreamstime.com/b/female-chef-12368856.jpg"
     },
     {
       "id": 12,
@@ -141,7 +141,7 @@
       "industry": "Construction",
       "rating": 4.2,
       "gender": "Male",
-      "profileImage": ""
+      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
     },
     {
       "id": 13,
@@ -153,7 +153,7 @@
       "industry": "Construction",
       "rating": 4.2,
       "gender": "Male",
-      "profileImage": ""
+      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
     }, {
       "id": 14,
       "name": "Ayesha Akter",
@@ -164,7 +164,7 @@
       "industry": "Construction",
       "rating": 4.5,
       "gender": "Female",
-      "profileImage": ""
+      "profileImage": "https://thumbs.dreamstime.com/b/female-chef-12368856.jpg"
     }, {
       "id": 15,
       "name": "Hasan Ali",
@@ -175,7 +175,7 @@
       "industry": "Construction",
       "rating": 4.1,
       "gender": "Male",
-      "profileImage": ""
+      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
     }, {
       "id": 16,
       "name": "Mohammed Rahman",
@@ -186,7 +186,7 @@
       "industry": "Construction",
       "rating": 4.0,
       "gender": "Male",
-      "profileImage": ""
+      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
     }, 
     {
       "id": 17,
@@ -198,7 +198,7 @@
       "industry": "Construction",
       "rating": 4.4,
       "gender": "Female",
-      "profileImage": ""
+      "profileImage": "https://st2.depositphotos.com/2090205/7693/i/950/depositphotos_76931933-stock-photo-good-looking-construction-worker.jpg"
     }
   ]
 
@@ -219,7 +219,7 @@
             <h5 class=" text-center light-gray font-M">Name: ${singleData.name} </h5>
             <div class="row g-0">
               <div class="col-md-4">
-                <img src=${singleData.profileImage} class="img-fluid rounded-start" alt="Image not found">
+                <img class="img-fluid" src=${singleData.profileImage} class="img-fluid rounded-start" alt="Image not found">
                 <h6 class="light-gray mt-3 text-center">Industris: ${singleData.industry} </h6>
               </div>
               <div class="col-md-8">

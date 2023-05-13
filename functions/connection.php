@@ -65,74 +65,39 @@ class Main
         // Validate all fields
         if (empty($userFullName)) {
             // userFullName field is empty
-        ?>
-            <script>
-                alert("Please enter your full name.");
-            </script>
-        <?php
-            return;
+            return "Please enter your full name.";
         }
 
         if (empty($userNid)) {
             // userNid field is empty
-        ?>
-            <script>
-                alert("Please enter your NID.");
-            </script>
-        <?php
-            return;
+            return "Please enter your NID.";
         }
 
 
 
         if (empty($userPhoneNumber)) {
             // userPhoneNumber field is empty
-        ?>
-            <script>
-                alert("Please enter your phone number.");
-            </script>
-        <?php
-            return;
+            return "Please enter your phone number.";
         }
 
         if (empty($userAddress)) {
             // userAddress field is empty
-        ?>
-            <script>
-                alert("Please enter your address.");
-            </script>
-        <?php
-            return;
+            return "Please enter your address.";
         }
 
         if (empty($userEmail)) {
             // userEmail field is empty
-        ?>
-            <script>
-                alert("Please enter your email.");
-            </script>
-        <?php
-            return;
+            return "Please enter your email.";
         }
 
         if (empty($userPassword)) {
             // userPassword field is empty
-        ?>
-            <script>
-                alert("Please enter your password.");
-            </script>
-        <?php
-            return;
+            return "Please enter your password.";
         }
 
         if (empty($userConfrimPassword)) {
             // userConfrimPassword field is empty
-        ?>
-            <script>
-                alert("Please confirm your password.");
-            </script>
-        <?php
-            return;
+            return "Please confirm your password.";
         }
 
         // Validate password format
@@ -140,19 +105,16 @@ class Main
         $numeric = preg_match('@[0-9]@', $userPassword);
         $special_chars = preg_match('@[^\w]@', $userPassword); // matches any non-alphanumeric character
 
-        if (!$uppercase || !$numeric || !$special_chars || strlen($userPassword) < 8) {
-        ?>
-            <script>
-                alert("Password must contain minimum 8 characters with at least 1 uppercase letter, 1 numeric value, and 1 special symbol.");
-            </script>
-        <?php
+        if (!$uppercase) {
+            return "Password must contain at least one uppercase letter.";
+        } else if (!$numeric) {
+            return "Password must contain at least one numeric value.";
+        } else if (!$special_chars) {
+            return "Password must contain at least one special symbol.";
+        } else if (strlen($userPassword) < 8) {
+            return "Password must be at least 8 characters long.";
         } else if ($userPassword != $userConfrimPassword) {
-        ?>
-            <script>
-                alert("Password and Confirm Password do not match");
-            </script>
-
-            <?php
+            return "Password and Confirm Password do not match.";
         } else {
             //create user account
             if ($img_extention == "jpg" || $img_extention == "jepg" || $img_extention == "png") {
@@ -176,7 +138,7 @@ class Main
             }
         }
     }
-    // Thus is user signup function
+    // Thus is worker signup function
     function worker_signup($data)
     {
         $workerFullname = $data['workerFullname'];
@@ -192,6 +154,16 @@ class Main
         $prof_img_name = $_FILES['workerProfile']['name'];
         $prof_img_temp_name = $_FILES['workerProfile']['tmp_name'];
         $img_extention = pathinfo($prof_img_name, PATHINFO_EXTENSION);
+
+
+        $checkQuery = "SELECT * FROM workersignup WHERE nid_number = '$workerNid' OR worker_email = '$workerEmail'";
+
+        $searchResult =  mysqli_query($this->conn, $checkQuery);
+
+        if (mysqli_num_rows($searchResult) > 0) {
+            // NID or email is already used
+            return 'NID or Email is already used';
+        }
 
         // Validate all fields
         // Validate all fields
@@ -287,12 +259,12 @@ class Main
 
                 if ($insert_data) {
                     move_uploaded_file($prof_img_temp_name, 'worker/upload' . $prof_img_name);
-                    ?>
+                ?>
                     <script>
                         alert("Account Created Successfully");
                         window.location.replace('wlogin.php');
                     </script>
-                    <?php
+                <?php
                 } else {
                 ?>
                     <script>
@@ -300,6 +272,25 @@ class Main
                     </script>
 <?php
                 }
+            }
+        }
+    }
+
+    // worker login
+
+    function worker_login($data)
+    {
+        $workerEmail = $data['workerEmail'];
+        $workerPassword = $data['workerPassword'];
+
+        $query = "SELECT * FROM workersignup where  worker_email='$workerEmail' AND worker_password='$workerPassword'";
+        $loginInfo = mysqli_query($this->conn, $query);
+
+        if (!$loginInfo || mysqli_num_rows($loginInfo) == 0) {
+            return 'Invalid Password or Email';
+        } else {
+            while ($row = mysqli_fetch_assoc($loginInfo)) {
+                echo "<script>window.location.replace('worker/index.html');</script>";
             }
         }
     }

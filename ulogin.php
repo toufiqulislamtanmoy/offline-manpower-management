@@ -2,7 +2,7 @@
 include("functions/connection.php");
 $connectionObj=new Main();
 if(isset($_POST['login'])){
-  $connectionObj->user_login($_POST);
+  $result = $connectionObj->user_login($_POST);
 }
 
 ?>
@@ -35,7 +35,7 @@ if(isset($_POST['login'])){
     <section class="bg-gra">
       <div class="container d-flex flex-column vh-100 align-content-center justify-content-center">
         <div class="login-content border border-warning white-bg p-5 w-75 m-auto bxSh rounded-5">
-          <h4 class="text-center font-M fs-3 mb-5 color-beguni">User Login</h4>
+          <h4 class="text-center font-M fs-3 mb-5 color-beguni">Admin Login</h4>
           <form action="" method="post">
             <div class="mb-3">
               <label for="userEmail" class="form-label">Email address</label>
@@ -47,12 +47,7 @@ if(isset($_POST['login'])){
               <input type="password" placeholder="********" class="form-control input-border" id="userPassword" name="password">
               <p id="pass-warning" class=" text-danger d-none">Password Did not match</p>
             </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-            </div>
             <p>
-              If you forget your password
               <a href="">forget password!</a>
             </p>
             <input type="submit" name="login" value="Login" id="login-btn" class="btn btn-success">

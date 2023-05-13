@@ -2,7 +2,7 @@
 include("functions/connection.php");
 $connectionObj=new Main();
 if(isset($_POST['signup'])){
-  $connectionObj->user_signup($_POST);
+  $result = $connectionObj->user_signup($_POST);
 }
 
 ?>
@@ -65,13 +65,16 @@ if(isset($_POST['signup'])){
             <div class="mb-3">
               <label for="userPassword" class="form-label">Password</label>
               <input required type="password" placeholder="********" class="form-control input-border" id="userPassword" name="userPassword" value="<?php if(isset($_POST['userPassword'])) echo $_POST['userPassword'] ?>">
-              <p id="pass-warning" class="text-danger d-none">Passwords do not match</p>
             </div>
             <div class="mb-3">
               <label for="userConfirmPassword" class="form-label">Confirm Password</label>
               <input required type="password" placeholder="********" class="form-control input-border" id="userConfirmPassword" name="userConfrimPassword" value="<?php if(isset($_POST['userConfrimPassword'])) echo $_POST['userConfrimPassword'] ?>">
-              <p id="pass-confirm-warning" class="text-danger d-none">Passwords do not match</p>
             </div>
+            <div class="text-danger my-1"> <?php if (isset($result)) {
+                                              echo $result;
+                                            } else {
+                                              echo '';
+                                            } ?> </div>
             <input type="submit" value="Sign Up" name="signup" class="btn btn-success">
           </form>
           <p class="text-center my-3">
