@@ -404,7 +404,7 @@ li.edge > ul {
       width: 50%; }
 .pcoded .megamenu-half .pcoded-submenu {
   padding: 10px !important;
-  color: #b4bcc8; }
+  color: #000000; }
 .pcoded[horizontal-placement="bottom"] .pcoded-navbar .pcoded-item > .pcoded-hasmenu.megamenu-half > .pcoded-submenu {
   bottom: 100%; }
 

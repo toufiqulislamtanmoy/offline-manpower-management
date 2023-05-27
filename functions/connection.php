@@ -51,6 +51,7 @@ class Main
         $userNid = $data['userNID'];
         $userPhoneNumber = $data['userPhoneNumber'];
         $userAddress = $data['userAddress'];
+        
         $userEmail = $data['userEmail'];
         $userPassword = $data['userPassword'];
         $userConfrimPassword = $data['userConfrimPassword'];
@@ -145,6 +146,7 @@ class Main
         $fatherName = $data['fatherName'];
         $dob = $data['dob'];
         $workerNid = $data['workerNid'];
+        $workerType = $data['workerType'];
         $workerPhone = $data['workerPhoneNumber'];
         $workerAddrss = $data['workerAddrss'];
         $workerPAddrss = $data['workerPAddrss'];
@@ -253,12 +255,12 @@ class Main
             return "Password and Confirm Password do not match.";
         } else {
             if ($img_extention == "jpg" || $img_extention == "jepg" || $img_extention == "png") {
-                $query = "INSERT INTO workersignup(worker_full_name,father_name,date_of_birth,worker_photo,nid_number,worker_phone_number,present_address,parmanennt_address,worker_password,worker_status,worker_email) VALUES('$workerFullname','$fatherName','$dob','$prof_img_name','$workerNid','$workerPhone','$workerAddrss','$workerPAddrss','$workerPassword',1,'$workerEmail')";
+                $query = "INSERT INTO workersignup(worker_full_name,father_name,date_of_birth,worker_photo,nid_number,worker_phone_number,present_address,parmanennt_address,worker_password,worker_status,worker_email,workerType) VALUES('$workerFullname','$fatherName','$dob','$prof_img_name','$workerNid','$workerPhone','$workerAddrss','$workerPAddrss','$workerPassword',1,'$workerEmail','$workerType')";
 
                 $insert_data = mysqli_query($this->conn, $query);
 
                 if ($insert_data) {
-                    move_uploaded_file($prof_img_temp_name, 'worker/upload' . $prof_img_name);
+                    move_uploaded_file($prof_img_temp_name, 'worker/upload/' . $prof_img_name);
                 ?>
                     <script>
                         alert("Account Created Successfully");
@@ -294,7 +296,20 @@ class Main
             }
         }
     }
-}
+
+    // Display all the worker in to user interface
+    
+    function displayWorkerInUserInterFace(){
+        $query = "SELECT *FROM workersignup";
+        $result = mysqli_query($this->conn, $query);
+        if($result){
+            return $result;
+        }else{
+            return "An Error Occur";
+        }
+    }
+
+    }
 
 
 

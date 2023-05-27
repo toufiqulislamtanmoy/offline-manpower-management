@@ -8,7 +8,7 @@
   <title>Home</title>
   <!-- Favicon -->
   <!-- Favicon icon -->
-  <link rel="icon" href="../../assests/img/icons/favicon.png" type="image/png">
+  <link rel="icon" href="/../manpowerbd/assests/img/icons/favicon.png" type="image/png">
 
   <!-- Bootstrap CDN link -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"

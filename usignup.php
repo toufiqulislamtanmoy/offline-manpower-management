@@ -48,6 +48,7 @@ if(isset($_POST['signup'])){
               <label for="userNid" class="form-label">NID Number</label>
               <input required type="text" class="form-control input-border" id="userNid" placeholder="NID Card Number" name="userNID" value="<?php if(isset($_POST['userNID'])) echo $_POST['userNID'] ?>">
             </div>            
+                      
             
             <div class="mb-3">
               <label for="userPhone" class="form-label">Phone Number</label>

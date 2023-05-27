@@ -36,7 +36,7 @@ if (isset($_POST['signup'])) {
       <div class="container d-flex flex-column min-vh-100 align-items-center justify-content-center">
         <div class="signup-content border border-warning white-bg p-5 bxSh rounded-5">
           <h4 class="text-center font-M fs-3 mb-5 color-beguni">Worker Signup</h4>
-          <form id="signupForm" action="" method="post" enctype="multipart/form-data">
+          <form class="" id="signupForm" action="" method="post" enctype="multipart/form-data">
             <div class="mb-3">
               <label for="workerFullname" class="form-label">Full Name</label>
               <input type="text" class="form-control input-border" id="workerFullname" placeholder="Enter Fullname (According To your NID)" name="workerFullname" value="<?php if (isset($_POST['workerFullname'])) echo $_POST['workerFullname'] ?>">
@@ -56,6 +56,21 @@ if (isset($_POST['signup'])) {
             <div class="mb-3">
               <label for="workerNid" class="form-label">NID Number</label>
               <input type="text" class="form-control input-border" id="workerNid" placeholder="NID Card Number" name="workerNid" value="<?php if (isset($_POST['workerNid'])) echo $_POST['workerNid'] ?>">
+            </div>
+
+            <div class="mb-3">
+              <label for="workerType" class="form-label">Worker Type</label>
+              <select required class="form-control input-border" id="workerType" name="workerType">
+                <option value="">Select Worker Type</option>
+                <option value="Electrician">Electrician</option>
+                <option value="Plumber">Plumber</option>
+                <option value="Carpenter">Carpenter</option>
+                <option value="Mechanic">Mechanic</option>
+                <option value="Cook">Cook</option>
+                <option value="Painter">Painter</option>
+                <option value="Housekeeper">Housekeeper</option>
+                <!-- Add more options for different worker types -->
+              </select>
             </div>
 
             <div class="mb-3">
@@ -102,7 +117,7 @@ if (isset($_POST['signup'])) {
   </main>
 
 
-  
+
 
 
 

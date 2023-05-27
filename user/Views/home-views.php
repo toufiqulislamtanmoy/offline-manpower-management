@@ -1,294 +1,45 @@
-<script>
-  const serviceProviders = [{
-      "id": 1,
-      "name": "Md. Abdul Ali",
-      "address": "5/A, Mymensingh Road, Dhaka",
-      "phone": "+8801712345678",
-      "nationalId": "1987654321987",
-      "type": "Electrician",
-      "industry": "Construction",
-      "rating": 4.5,
-      "gender": "Male",
-      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
-    },
-    {
-      "id": 2,
-      "name": "Abdul Haque",
-      "address": "2/B, Mirpur Road, Dhaka",
-      "phone": "+8801712345679",
-      "nationalId": "1234567891234",
-      "type": "Plumber",
-      "industry": "Construction",
-      "rating": 4.2,
-      "gender": "Male",
-      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
-    },
-    {
-      "id": 3,
-      "name": "Md. Ali Ahmed",
-      "address": "12, Baridhara, Dhaka",
-      "phone": "+8801712345680",
-      "nationalId": "7654321098765",
-      "type": "Carpenter",
-      "industry": "Construction",
-      "rating": 3.9,
-      "gender": "Male",
-      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
-    },
-    {
-      "id": 4,
-      "name": "Rafiqul Islam",
-      "address": "15, Uttara, Dhaka",
-      "phone": "+8801712345681",
-      "nationalId": "2345678912345",
-      "type": "Mechanic",
-      "industry": "Automotive",
-      "rating": 4.1,
-      "gender": "Male",
-      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
-    },
-    {
-      "id": 5,
-      "name": "Nasreen Akhter",
-      "address": "7, Green Road, Dhaka",
-      "phone": "+8801712345682",
-      "nationalId": "6789012345678",
-      "type": "Cook",
-      "industry": "Food Service",
-      "rating": 4.7,
-      "gender": "Female",
-      "profileImage": "https://thumbs.dreamstime.com/b/female-chef-12368856.jpg"
-    },
-    {
-      "id": 6,
-      "name": "Kamal Hossain",
-      "address": "10/B, Banani, Dhaka",
-      "phone": "+8801712345683",
-      "nationalId": "5432109876543",
-      "type": "Painter",
-      "industry": "Construction",
-      "rating": 4.0,
-      "gender": "Male",
-      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
-    },
-    {
-      "id": 7,
-      "name": "Shaheda Begum",
-      "address": "15, Dhanmondi, Dhaka",
-      "phone": "+8801712345684",
-      "nationalId": "9876543210987",
-      "type": "Housekeeper",
-      "industry": "Hospitality",
-      "rating": 4.6,
-      "gender": "Female",
-      "profileImage": "https://thumbs.dreamstime.com/b/female-chef-12368856.jpg"
-    },
-    {
-      "id": 8,
-      "name": "Rahim Uddin",
-      "address": "12, Rajshahi Road, Rajshahi",
-      "phone": "+8801712345686",
-      "nationalId": "3456789123456",
-      "type": "Electrician",
-      "industry": "Construction",
-      "rating": 4.3,
-      "gender": "Male",
-      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
-    },
-    {
-      "id": 9,
-      "name": "Fatima Begum",
-      "address": "45, Rajshahi Bypass Road, Rajshahi",
-      "phone": "+8801712345687",
-      "nationalId": "7890123456789",
-      "type": "Plumber",
-      "industry": "Construction",
-      "rating": 4.1,
-      "gender": "Female",
-      "profileImage": "https://st2.depositphotos.com/2090205/7693/i/950/depositphotos_76931933-stock-photo-good-looking-construction-worker.jpg"
-    },
-    {
-      "id": 10,
-      "name": "Siddique Rahman",
-      "address": "22/A, University More, Rajshahi",
-      "phone": "+8801712345688",
-      "nationalId": "6543210987654",
-      "type": "Carpenter",
-      "industry": "Construction",
-      "rating": 4.4,
-      "gender": "Male",
-      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
-    },
-    {
-      "id": 11,
-      "name": "Ayesha Khanam",
-      "address": "33, Vuter Goli, Rajshahi",
-      "phone": "+8801712345689",
-      "nationalId": "1234567890123",
-      "type": "Cook",
-      "industry": "Food Service",
-      "rating": 4.8,
-      "gender": "Female",
-      "profileImage": "https://thumbs.dreamstime.com/b/female-chef-12368856.jpg"
-    },
-    {
-      "id": 12,
-      "name": "Mahmud Hasan",
-      "address": "5, Rajshahi Court Road, Rajshahi",
-      "phone": "+8801712345690",
-      "nationalId": "4567891234567",
-      "type": "Painter",
-      "industry": "Construction",
-      "rating": 4.2,
-      "gender": "Male",
-      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
-    },
-    {
-      "id": 13,
-      "name": "Abdul Karim",
-      "address": "Raipara, Rajshahi",
-      "phone": "+8801712345678",
-      "nationalId": "1234567890123",
-      "type": "Plumber",
-      "industry": "Construction",
-      "rating": 4.2,
-      "gender": "Male",
-      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
-    }, {
-      "id": 14,
-      "name": "Ayesha Akter",
-      "address": "Horogram Bazzar, Rajshahi",
-      "phone": "+8801712345679",
-      "nationalId": "2345678901234",
-      "type": "Carpenter",
-      "industry": "Construction",
-      "rating": 4.5,
-      "gender": "Female",
-      "profileImage": "https://thumbs.dreamstime.com/b/female-chef-12368856.jpg"
-    }, {
-      "id": 15,
-      "name": "Hasan Ali",
-      "address": "Court Station, Rajshahi",
-      "phone": "+8801712345680",
-      "nationalId": "3456789012345",
-      "type": "Electrician",
-      "industry": "Construction",
-      "rating": 4.1,
-      "gender": "Male",
-      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
-    }, {
-      "id": 16,
-      "name": "Mohammed Rahman",
-      "address": "Vari Para, Rajshahi",
-      "phone": "+8801712345681",
-      "nationalId": "4567890123456",
-      "type": "Painter",
-      "industry": "Construction",
-      "rating": 4.0,
-      "gender": "Male",
-      "profileImage": "https://media.istockphoto.com/id/177849476/photo/man-construction-worker-profile-sideview-silhouette-portrait.jpg?s=612x612&w=0&k=20&c=vOLMj-9ZcRHA3V4RPdY0coI5yilhN2oGm9wmpJ-ePzg="
-    }, 
-    {
-      "id": 17,
-      "name": "Fahmida Begum",
-      "address": "Dorga Para, Rajshahi",
-      "phone": "+8801712345682",
-      "nationalId": "5678901234567",
-      "type": "Mason",
-      "industry": "Construction",
-      "rating": 4.4,
-      "gender": "Female",
-      "profileImage": "https://st2.depositphotos.com/2090205/7693/i/950/depositphotos_76931933-stock-photo-good-looking-construction-worker.jpg"
-    }
-  ]
+<?php include_once(__DIR__ . '/../userFunction/manageUser.php'); ?>
 
+<?php
 
-  window.onload = function() {
-    const workerContainer = document.getElementById('worker-container');
-    const displayWorker = (worker) => {
-      // console.log(user)
-      const workerContainer = document.getElementById('worker-container');
-      workerContainer.innerHTML = '';
-      worker.map(singleData => {
-        console.log(singleData);
-        const singleWorker = document.createElement('div');
-        singleWorker.classList.add('col');
-
-        singleWorker.innerHTML = `
-          <div class=" card mb-3 bg-card-black p-3">
-            <h5 class=" text-center light-gray font-M">Name: ${singleData.name} </h5>
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img class="img-fluid" src=${singleData.profileImage} class="img-fluid rounded-start" alt="Image not found">
-                <h6 class="light-gray mt-3 text-center">Industris: ${singleData.industry} </h6>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title light-gray">Type: ${singleData.type}</h5>
-                  <p class="card-text light-gray"><i class="fa-solid fa-phone-volume"></i> ${singleData.phone}</p>
-                  <div class="reatings mb-2 text-warning">
-                    <i class="fa-solid fa-star greenyellow-color"></i>
-                    <i class="fa-solid fa-star greenyellow-color"></i>
-                    <i class="fa-solid fa-star greenyellow-color"></i>
-                    <i class="fa-solid fa-star greenyellow-color"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-
-                  <address class="card-title light-gray">Address: ${singleData.address}
-                  </address>
-
-                  <div>
-                    <a href="fff?id=${singleData.id}" class="btn btn-warning px-3 py-2 mt-3 font-M"><i class="fa-regular fa-eye"></i> View Profile</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-    `
-
-        workerContainer.appendChild(singleWorker);
-      })
-
-
-    }
-
-    displayWorker(serviceProviders);
-  };
-</script>
-
+    $connectionObj = new ManageUser();
+    $returnData = $connectionObj -> displayWorkerInUserInterFace();
+?>
 
 <section class="mt-7rem bg-light-gray p-5">
   <div id="worker-container" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-    <div class="col">
-      <div class=" card mb-3 bg-card-black p-3">
-        <h4 class=" text-center light-gray font-M">Name: Toufiqul Islam Tanmoy</h4>
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="../img/prof-icon/profile_159x159.png" class="img-fluid rounded-start" alt="Image not found">
-            <h6 class="light-gray mt-3 text-center">Source: Amazon</h6>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title light-gray">Type: Driver</h5>
-              <p class="card-text light-gray"><i class="fa-solid fa-phone-volume"></i> +880 18481-89482</p>
-              <div class="reatings mb-2 text-warning">
-                <i class="fa-solid fa-star greenyellow-color"></i>
-                <i class="fa-solid fa-star greenyellow-color"></i>
-                <i class="fa-solid fa-star greenyellow-color"></i>
-                <i class="fa-solid fa-star greenyellow-color"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-
-              <address class="card-title light-gray">Address: Rajshahi Court, Rajshahi
-              </address>
-
-              <div>
-                <button class="btn btn-warning px-3 py-2 mt-3 font-M"><i class="fa-regular fa-eye"></i> View Profile</button>
+    <?php while ($row = mysqli_fetch_assoc($returnData)) { ?>
+      <div class="col">
+        <div class="card mb-3 bg-card-black p-3">
+          <h5 class="text-center light-gray font-M">Name: <?php echo $row['worker_full_name']; ?></h5>
+          <div class="row g-0">
+            <div class="col-md-4">
+            
+              <!-- <img class="img-fluid" src="/../manpowerbd/upload/" class="img-fluid rounded-start" alt="Image not found"> -->
+              <img class="img-fluid" src="/../manpowerbd/worker/upload/<?php echo $row['worker_photo']; ?>" class="img-fluid rounded-start" alt="Image not found">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title light-gray">Type: <?php echo $row['workerType']; ?></h5>
+                <p class="card-text light-gray"><i class="fa-solid fa-phone-volume"></i> <?php echo $row['worker_phone_number']; ?></p>
+                <div class="ratings mb-2 text-warning">
+                  <i class="fa-solid fa-star greenyellow-color"></i>
+                  <i class="fa-solid fa-star greenyellow-color"></i>
+                  <i class="fa-solid fa-star greenyellow-color"></i>
+                  <i class="fa-solid fa-star greenyellow-color"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <address class="card-title light-gray">Address: <?php echo $row['present_address']; ?></address>
+                <div>
+                  <a href="" class="btn btn-warning px-3 py-2 mt-3 font-M">
+                    <i class="fa-regular fa-eye"></i> View Profile
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    <?php } ?>
   </div>
 </section>
