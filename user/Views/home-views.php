@@ -31,7 +31,7 @@
                 </div>
                 <address class="card-title light-gray">Address: <?php echo $row['present_address']; ?></address>
                 <div>
-                  <a href="" class="btn btn-warning px-3 py-2 mt-3 font-M">
+                  <a href="view_profile.php?id=<?php echo $row['worker_id']; ?>" class="btn btn-warning px-3 py-2 mt-3 font-M">
                     <i class="fa-regular fa-eye"></i> View Profile
                   </a>
                 </div>
