@@ -3,18 +3,20 @@
 include('Includes/head.php');
 ?>
 
-<body>
+<body  >
   
   <?php
     include('Includes/navbar.php');
   ?>
-  <main>
+  <main style="min-height: calc(100vh - 25vh);">
     <?php
     
     if($views == 'home'){
       include('Views/home-views.php');
     }elseif($views == 'user-profile'){
       include('Views/user-profile-view.php');
+    }else if($views == 'worker-detail'){
+      include('Views/worker-detail-view.php');
     }
     
     ?>
