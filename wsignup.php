@@ -57,6 +57,16 @@ if (isset($_POST['signup'])) {
               <label for="workerNid" class="form-label">NID Number</label>
               <input type="text" class="form-control input-border" id="workerNid" placeholder="NID Card Number" name="workerNid" value="<?php if (isset($_POST['workerNid'])) echo $_POST['workerNid'] ?>">
             </div>
+            <div class="mb-3">
+              <label for="gender" class="form-label">Gender</label>
+              <select required class="form-control input-border" id="gender" name="gender">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
 
             <div class="mb-3">
               <label for="workerType" class="form-label">Worker Type</label>

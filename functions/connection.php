@@ -145,6 +145,7 @@ class Main
         $workerFullname = $data['workerFullname'];
         $fatherName = $data['fatherName'];
         $dob = $data['dob'];
+        $gender = $data['gender'];
         $workerNid = $data['workerNid'];
         $workerType = $data['workerType'];
         $workerPhone = $data['workerPhoneNumber'];
@@ -255,7 +256,7 @@ class Main
             return "Password and Confirm Password do not match.";
         } else {
             if ($img_extention == "jpg" || $img_extention == "jepg" || $img_extention == "png") {
-                $query = "INSERT INTO workersignup(worker_full_name,father_name,date_of_birth,worker_photo,nid_number,worker_phone_number,present_address,parmanennt_address,worker_password,worker_status,worker_email,workerType) VALUES('$workerFullname','$fatherName','$dob','$prof_img_name','$workerNid','$workerPhone','$workerAddrss','$workerPAddrss','$workerPassword',1,'$workerEmail','$workerType')";
+                $query = "INSERT INTO workersignup(worker_full_name,father_name,date_of_birth,worker_photo,nid_number,worker_phone_number,present_address,parmanennt_address,worker_password,worker_status,worker_email,workerType,gender) VALUES('$workerFullname','$fatherName','$dob','$prof_img_name','$workerNid','$workerPhone','$workerAddrss','$workerPAddrss','$workerPassword',1,'$workerEmail','$workerType','$gender')";
 
                 $insert_data = mysqli_query($this->conn, $query);
 

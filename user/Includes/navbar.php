@@ -2,7 +2,7 @@
   <header>
     <nav class=" px-3 navbar navbar-dark bg-dark fixed-top" >
       <div class="container-fluid">
-        <a class="navbar-brand" href="fuck.html"><span class="font-M fs-4"><span
+        <a class="navbar-brand" href="/../manpowerbd/index.php"><span class="font-M fs-4"><span
               class=" fs-2 text-uppercase color-org">M</span>anp<span
               class=" fs-2 text-uppercase color-org">o</span>wer<span
               class=" fs-2 text-uppercase color-org">bd</span></span></a>

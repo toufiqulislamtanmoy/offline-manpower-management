@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home</title>
+  <title>ManpowerBD</title>
   <!-- Favicon -->
   <!-- Favicon icon -->
   <link rel="icon" href="/../manpowerbd/assests/img/icons/favicon.png" type="image/png">
