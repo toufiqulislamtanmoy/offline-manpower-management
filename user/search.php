@@ -1,9 +1,9 @@
 <?php
 
 // Include the manageUser.php file using the relative directory path
-include('./user/userFunction/manageUser.php');
+include('/userFunction/manageUser.php');
 echo '<script> console.log("from The search")</script>';
-$manageUser = new ManageUser();
+$manageUser = new manageUser();
 $conn = $manageUser->conn;
 
 $searchQuery = isset($_GET['q']) ? $_GET['q'] : '';

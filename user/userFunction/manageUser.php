@@ -1,6 +1,6 @@
 <?php
 
-class ManageUser
+class manageUser
 {
     public $conn;
     function __construct()
