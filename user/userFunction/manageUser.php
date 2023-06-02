@@ -2,7 +2,7 @@
 
 class ManageUser
 {
-    private $conn;
+    public $conn;
     function __construct()
     {
         $dbhost = "localhost";
