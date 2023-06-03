@@ -1,11 +1,14 @@
+<?php session_start() ?>
 <?php include_once(__DIR__ . '/../userFunction/manageUser.php'); ?>
 <?php
 $connectionObj = new ManageUser();
 $isDisabled = true;
 $workerId = $_GET['id'];
 // echo $workerId;
+$userId = $_SESSION['user_id'];
+$returnData = $connectionObj->viewWorkerProfile(['id' => $workerId],$userId);
+// $reviewAndRating = $connectionObj ->userReview(['id' => $workerId])
 
-$returnData = $connectionObj->viewWorkerProfile(['id' => $workerId]);
 ?>
 
 <script>
@@ -35,7 +38,9 @@ $returnData = $connectionObj->viewWorkerProfile(['id' => $workerId]);
                     </div>
                     <div class="px-3 text-left">
                         <p>
-                        <?php if(isset($returnData['bio'])){echo $returnData['bio'];}else echo '';  ?>
+                            <?php if (isset($returnData['bio'])) {
+                                echo $returnData['bio'];
+                            } else echo '';  ?>
                         </p>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 class Main
 {
     private $conn;
@@ -40,6 +41,12 @@ class Main
         <?php
         } else {
             while ($row = mysqli_fetch_assoc($loginInfo)) {
+                $_SESSION['user_id'] = $row['userId'];
+                
+                    // Display the user ID in an alert message
+                    echo "<script>console.log('Logged-in user ID: " .$_SESSION['user_id'] . "');</script>";
+                
+                
                 echo "<script>window.location.replace('user/home.php');</script>";
             }
         }
@@ -300,15 +307,15 @@ class Main
 
     // Display all the worker in to user interface
     
-    function displayWorkerInUserInterFace(){
-        $query = "SELECT *FROM workersignup";
-        $result = mysqli_query($this->conn, $query);
-        if($result){
-            return $result;
-        }else{
-            return "An Error Occur";
-        }
-    }
+    // function displayWorkerInUserInterFace(){
+    //     $query = "SELECT *FROM workersignup";
+    //     $result = mysqli_query($this->conn, $query);
+    //     if($result){
+    //         return $result;
+    //     }else{
+    //         return "An Error Occur";
+    //     }
+    // }
 
     }
 

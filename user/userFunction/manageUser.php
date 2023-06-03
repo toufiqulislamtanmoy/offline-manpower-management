@@ -1,6 +1,5 @@
 <?php
-
-class manageUser
+class ManageUser
 {
     public $conn;
     function __construct()
@@ -41,18 +40,31 @@ class manageUser
 
     //Display a single worker profile to the user
 
-    function viewWorkerProfile($data)
+    function viewWorkerProfile($data,$userId)
     {
         $workerId = $data['id'];
-        $query = "SELECT worker_full_name, worker_photo, present_address, workerType,gender FROM workersignup WHERE worker_id =$workerId";
-        $result = mysqli_query($this->conn, $query);
+        $query1 = "SELECT worker_full_name, worker_photo, present_address, workerType,gender FROM workersignup WHERE worker_id =$workerId";
+        $WorkerProfileResult = mysqli_query($this->conn, $query1);
 
-        if ($result) {
+        
+        
+        
+        // to do use this query in next
+
+        // $query = "SELECT w.worker_full_name, w.worker_photo, w.present_address, w.workerType, w.gender, h.user_rating, h.user_review, h.end_date, u.* 
+        // FROM workersignup w 
+        // LEFT JOIN hire_table h ON w.worker_id = h.worker_id 
+        // LEFT JOIN usersignup u ON w.userId = u.userId 
+        // WHERE w.worker_id = $workerId";
+
+
+
+        if ($WorkerProfileResult) {
             // Fetch the result row
-            $row = mysqli_fetch_assoc($result);
+            $row = mysqli_fetch_assoc($WorkerProfileResult);
 
             // Free the result set
-            mysqli_free_result($result);
+            mysqli_free_result($WorkerProfileResult);
 
             // Return the retrieved data
             return $row;
@@ -79,13 +91,23 @@ class manageUser
         }
     }
 
-    function currentPageData($limit,$offset)
+    function currentPageData($limit, $offset)
     {
         // Modify your SQL query to include the LIMIT clause
         $query = "SELECT * FROM workersignup LIMIT $limit OFFSET $offset";
         $result = mysqli_query($this->conn, $query);
         return $result;
     }
+    // search the data 
+    function searchWorkers($limit, $offset, $searchInput)
+    {
+        //to do add the limit and offset for pagination
+        $query = "SELECT * FROM workersignup WHERE worker_full_name LIKE '%$searchInput%' OR workerType LIKE '%$searchInput%'";
+        $result = mysqli_query($this->conn, $query);
+        return $result;
+    }
+
+    
 }
 
 

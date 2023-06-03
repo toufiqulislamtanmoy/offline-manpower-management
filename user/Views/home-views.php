@@ -3,18 +3,32 @@
 <?php
 
 $connectionObj = new ManageUser();
-// $returnData = $connectionObj->displayWorkerInUserInterFace();
 $totalNumberOfPages = $connectionObj->pagination();
 $limit = 8;
 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-// Calculate the offset for the LIMIT clause in the SQL query
 $offset = ($current_page - 1) * $limit;
 
-$pageData = $connectionObj->currentPageData($limit, $offset);
-
+// Perform the search query if the 'search' parameter is present
+if (isset($_GET['search'])) {
+  $searchInput = $_GET['searchInput'];
+  $pageData = $connectionObj->searchWorkers($limit, $offset, $searchInput);
+} else {
+  $pageData = $connectionObj->currentPageData($limit, $offset);
+}
 ?>
 
-<section class="mt-7rem bg-light-gray p-5">
+<section style="background-image: url('/../manpowerbd/assests/img/gradent/searchBanner2.png'); background-repeat: no-repeat; background-position: center; background-size: cover;" class="mt-7rem bg-light-gray p-5">
+  <div class="my-5 rounded-4 px-3 d-flex justify-content-center align-items-center">
+    <form class="d-lg-flex flex-lg-row justify-content-center mt-3 col-12 col-sm-6 mx-auto" role="search" method="get">
+      <div>
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchInput">
+      </div>
+      <input type="submit" value="Search" name="search" class="btn btn-success mt-sm-0 mt-3">
+  </div>
+  </form>
+  </div>
+
+
   <div id="worker-container" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
     <?php while ($row = mysqli_fetch_assoc($pageData)) { ?>
       <div class="col">

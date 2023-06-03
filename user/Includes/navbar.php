@@ -37,76 +37,10 @@
               <a class="nav-link" href="#">Log Out</a>
             </li>
           </ul>
-          <form class="d-flex mt-3" role="search" id="searchForm">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
-            <button class="btn btn-success" type="submit">Search</button>
-          </form>
+          
 
         </div>
       </div>
     </div>
   </nav>
 </header>
-
-<script>
-  document.getElementById('searchForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent form submission
-
-    const searchQuery = document.getElementById('searchInput').value;
-    console.log(searchQuery);
-
-    // Make an asynchronous request to perform the search
-    // You can use AJAX or fetch API to send a request to the server-side script
-
-    // Example using fetch API
-    fetch('search.php?q=' + searchQuery)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
-        // Handle the search results here
-        const workerContainer = document.getElementById('worker-container');
-        workerContainer.innerHTML = ''; // Clear previous results
-
-        data.forEach(worker => {
-          const workerCard = `
-        <div class="col">
-          <div class="card mb-3 bg-card-black p-3">
-            <h5 class="text-center light-gray font-M">Name: ${worker.worker_full_name}</h5>
-            <div class="row g-0">
-              <div class="col-md-5">
-                <img class="img-fluid rounded-start" src="/../manpowerbd/worker/upload/${worker.worker_photo}" class="img-fluid rounded-start" alt="Image not found">
-                <div class="ratings mb-2 text-warning">
-                  <i class="fa-solid fa-star greenyellow-color"></i>
-                  <i class="fa-solid fa-star greenyellow-color"></i>
-                  <i class="fa-solid fa-star greenyellow-color"></i>
-                  <i class="fa-solid fa-star greenyellow-color"></i>
-                  <i class="fa-solid fa-star"></i>
-                </div>
-                <div class="text-white">
-                  <p><span class="fw-bold">Charge:</span> 700TK</p>
-                </div>
-              </div>
-              <div class="col-md-7">
-                <div class="card-body">
-                  <h5 class="card-title light-gray">${worker.workerType}</h5>
-                  <p class="card-text light-gray"><i class="fa-solid fa-phone-volume"></i> ${worker.worker_phone_number}</p>
-                  <address class="card-title light-gray">Address: ${worker.present_address}</address>
-                  <div>
-                    <a href="/../manpowerbd/user/worker-detail.php?id=${worker.worker_id}" class="btn btn-warning px-3 py-2 mt-3 font-M">
-                      <i class="fa-regular fa-eye"></i> View Profile
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-          workerContainer.insertAdjacentHTML('beforeend', workerCard);
-        });
-      })
-      .catch(error => {
-        console.log('Error:', error);
-      });
-  });
-</script>
