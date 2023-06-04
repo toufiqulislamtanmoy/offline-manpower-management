@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2023 at 03:22 PM
+-- Generation Time: Jun 04, 2023 at 06:03 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.4
 
@@ -20,6 +20,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `manpowerbd`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hire_table`
+--
+
+CREATE TABLE `hire_table` (
+  `hire_id` int(255) NOT NULL,
+  `userId` int(255) NOT NULL,
+  `worker_id` int(255) NOT NULL,
+  `hire_date` date NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `charge` int(255) NOT NULL,
+  `payment_status` varchar(255) NOT NULL,
+  `user_rating` int(255) NOT NULL,
+  `user_review` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `hire_table`
+--
+
+INSERT INTO `hire_table` (`hire_id`, `userId`, `worker_id`, `hire_date`, `start_date`, `end_date`, `charge`, `payment_status`, `user_rating`, `user_review`) VALUES
+(1, 7, 11, '2023-06-03', '2023-06-03', '2023-06-03', 700, 'paid', 5, 'I recently hired him, and I\'m extremely satisfied with their service. They were professional, knowledgeable, and attentive to detail. Their commitment to safety and fair pricing was also impressive. I highly recommend their services and will definitely hi');
 
 -- --------------------------------------------------------
 
@@ -44,14 +70,10 @@ CREATE TABLE `usersignup` (
 
 INSERT INTO `usersignup` (`userId`, `UserName`, `UserNID`, `userPhone`, `userAddress`, `userEmail`, `userPassword`, `profileImage`) VALUES
 (7, 'Toufiqul Islam Tanmoy', '12365897', '01848189482', 'Rajshahi, Bangladesh', 'admin@gmail.com', 'Tanmoy#120', 'tit.jpg'),
-(8, 'Toufiqul Islam Tanmoy', '12365897', '01848189482', 'Rajshahi, Bangladesh', 'admin@gmail.com', 'Tanmoy#120', 'm2i8m2N4H7b1H7b1.png'),
 (9, 'Toufiqul Islam Tanmoy', '12365897', '01848189482', 'Rajshahi, Bangladesh', 'tittanmoy@yahoo.com', 'Tanmoy#120', 'fb-logo.png'),
-(10, 'Olied Islam', '5236987', '01848189482', 'Rajshahi, Bangladesh', 'admin@gmail.com', 'Tanmoy#120', 'chefPicture.jpg'),
 (11, 'Samia Zaman', '454422', '0174424536', 'Rajshahi, Bangladesh', 'admin@gmail.com', 'Samia#120', 'chefPicture2.jpg'),
 (12, 'Toufiqul Islam Tanmoy', '5413454', '01848189482', 'Rajshahi, Bangladesh', 'a@gmail.com', 'Tanmoy#120', 'chefPicture2.jpg'),
-(13, 'Toufiqul Islam Tanmoy', '12345678', '01848189482', 'Rajshahi, Bangladesh', 'a@gmail.com', 'Tanmoy#120', '344288504_193267183585556_9189707409016718643_n.png'),
-(14, 'Toufiqul Islam Tanmoy', '87654321', '01848189482', 'Rajshahi, Bangladesh', 'b@gmail.com', 'Tanmoy#120', '344288504_193267183585556_9189707409016718643_n.png'),
-(15, 'Toufiqul Islam Tanmoy', '87654321', '01848189482', 'Rajshahi, Bangladesh', 'b@gmail.com', 'Tanmoy#120', '344288504_193267183585556_9189707409016718643_n.png');
+(14, 'Toufiqul Islam Tanmoy', '87654321', '01848189482', 'Rajshahi, Bangladesh', 'b@gmail.com', 'Tanmoy#120', '344288504_193267183585556_9189707409016718643_n.png');
 
 -- --------------------------------------------------------
 
@@ -86,7 +108,7 @@ INSERT INTO `workersignup` (`worker_id`, `worker_full_name`, `father_name`, `dat
 (13, 'Md. Ali Ahmed', 'Md. Sagor Ali', '1985-04-13', 'fake_worker2.jpg', '7654321098765', '8801712345680', '12, Baridhara, Dhaka', '12, Baridhara, Dhaka', 'Worker@120', 1, 'ahmed.ali@gmail.com', 'Carpenter', ''),
 (14, 'Rafiqul Islam', 'Rasidhu Islam', '1995-05-09', 'fake_worker2.jpg', '2345678912345', '8801712345681', '15, Uttara, Dhaka', '15, Uttara, Dhaka', 'Worker@120', 1, 'rafiul.ali@gmail.com', 'Mechanic', ''),
 (15, 'Nasreen Akhter', 'Nasir Khan', '1987-11-27', 'chefPicture2.jpg', '6789012345678', '8801712345682', '7, Green Road, Dhaka', '7, Green Road, Dhaka', 'Worker@120', 1, 'nasrin@gmail.com', 'Cook', ''),
-(16, 'Kamal Hossain', 'Jamal Hossain', '1999-05-23', '173-1737582_1000-x-972-71-4-business-man-with.png', '5432109876543', '8801712345683', '10/B, Banani, Dhaka', '10/B, Banani, Dhaka', 'Worker@120', 1, 'kamal@gmail.com', 'Painter', ''),
+(16, 'Kamal Hossain', 'Jamal Hossain', '1999-05-23', 'fake_worker2.jpg', '5432109876543', '8801712345683', '10/B, Banani, Dhaka', '10/B, Banani, Dhaka', 'Worker@120', 1, 'kamal@gmail.com', 'Painter', 'Male'),
 (17, 'Shaheda Begum', 'Sahin Khan', '1998-08-07', 'chefPicture2.jpg', '9876543210987', '8801712345684', '15, Dhanmondi, Dhaka', '15, Dhanmondi, Dhaka', 'Worker@120', 1, 'shaheda@gmail.com', 'Housekeeper', ''),
 (18, 'Rahim Uddin', 'Rajib Uddin', '1997-12-23', 'fake_worker2.jpg', '3456789123456', '8801712345686', '12, Rajshahi Road, Rajshahi', '12, Rajshahi Road, Rajshahi', 'Worker@120', 1, 'uddin@gmail.com', 'Electrician', ''),
 (19, 'Fatima Begum', 'Farhad Reza', '1999-02-05', 'chefPicture2.jpg', '7890123456789', '8801712345687', '45, Rajshahi Bypass Road, Rajshahi', '45, Rajshahi Bypass Road, Rajshahi', 'Worker@120', 1, 'fatima@gmail.com', 'Cook', ''),
@@ -96,6 +118,12 @@ INSERT INTO `workersignup` (`worker_id`, `worker_full_name`, `father_name`, `dat
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `hire_table`
+--
+ALTER TABLE `hire_table`
+  ADD PRIMARY KEY (`hire_id`);
 
 --
 -- Indexes for table `usersignup`
@@ -112,6 +140,12 @@ ALTER TABLE `workersignup`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `hire_table`
+--
+ALTER TABLE `hire_table`
+  MODIFY `hire_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `usersignup`
