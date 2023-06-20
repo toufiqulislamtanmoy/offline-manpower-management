@@ -145,6 +145,18 @@ class ManageUser
         $result = mysqli_query($this->conn, $query);
         return $result;
     }
+
+    // user profile
+    function user_details($user_id){
+        $query = "SELECT *FROM usersignup WHERE userId = $user_id";
+        $result = mysqli_query($this->conn, $query);
+        if ($result) {
+            $row = mysqli_fetch_assoc($result);
+            return $row;
+        } else {
+            return "An Error Occur";
+        }
+    }
 }
 
 

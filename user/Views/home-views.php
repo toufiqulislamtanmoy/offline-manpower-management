@@ -5,7 +5,7 @@
 $connectionObj = new ManageUser();
 
 $totalNumberOfPages = $connectionObj->pagination();
-$limit = 8;
+$limit = 9;
 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 $offset = ($current_page - 1) * $limit;
 
@@ -30,16 +30,16 @@ if (isset($_GET['search'])) {
   </div>
 
 
-  <div id="worker-container" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+  <div id="worker-container" class="row row-cols-1 row-cols-md-3 row-cols-lg-3 g-4 mx-lg-4 ">
     <?php while ($row = mysqli_fetch_assoc($pageData)) { ?>
       <div class="col">
         <div class="card mb-3 bg-card-black p-3">
-          <h5 class="text-center light-gray font-M">Name: <?php echo $row['worker_full_name']; ?></h5>
+
           <div class="row g-0">
-            <div class="col-md-5">
+            <div class="col-md-5 text-center">
 
               <!-- <img class="img-fluid" src="/../manpowerbd/upload/" class="img-fluid rounded-start" alt="Image not found"> -->
-              <img class="img-fluid rounded-start" src="/../manpowerbd/worker/upload/<?php echo $row['worker_photo']; ?>" class="img-fluid rounded-start" alt="Image not found">
+              <img style="height: 120px; width:120px" class="img-fluid rounded-circle" src="/../manpowerbd/worker/upload/<?php echo $row['worker_photo']; ?>" class="img-fluid rounded-start" alt="Image not found">
 
 
               <?php
@@ -53,21 +53,30 @@ if (isset($_GET['search'])) {
               ";
               ?>
 
-              <div class="text-white">
+              <div class="text-white text-center">
                 <h5 class="card-title light-gray"><?php echo $row['workerType']; ?></h5>
               </div>
             </div>
             <div class="col-md-7">
               <div class="card-body">
-                <address class="card-title light-gray">Address: <?php echo $row['present_address']; ?></address>
-                <div>
-                  <a href="/../manpowerbd/user/worker-detail.php?id=<?php echo $row['worker_id']; ?>" class="btn btn-warning px-3 py-2 mt-3 font-M">
-                    <i class="fa-regular fa-eye"></i> View Profile
-                  </a>
-                </div>
+                <h5 class="light-gray"><span class="fw-bold">Name:</span> <?php echo $row['worker_full_name']; ?></h5>
+                <address class="card-title light-gray"><span class="fw-bold">Address: </span><?php echo $row['present_address']; ?></address>
+                <table class="text-white">
+                  <tr>
+                    <td>Full Day:</td>
+                    <td>700 BDT</td>
+                  </tr>
+                  <tr>
+                    <td>Hourly:</td>
+                    <td>100 BDT/hr</td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div>
+          <a href="/../manpowerbd/user/worker-detail.php?id=<?php echo $row['worker_id']; ?>" class="btn btn-warning px-3 py-2 mt-3 font-M">
+            <i class="fa-regular fa-eye"></i> View Profile
+          </a>
         </div>
       </div>
     <?php } ?>
