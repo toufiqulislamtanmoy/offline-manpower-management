@@ -3,6 +3,7 @@
 <?php
 
 $connectionObj = new ManageUser();
+
 $totalNumberOfPages = $connectionObj->pagination();
 $limit = 8;
 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -39,22 +40,25 @@ if (isset($_GET['search'])) {
 
               <!-- <img class="img-fluid" src="/../manpowerbd/upload/" class="img-fluid rounded-start" alt="Image not found"> -->
               <img class="img-fluid rounded-start" src="/../manpowerbd/worker/upload/<?php echo $row['worker_photo']; ?>" class="img-fluid rounded-start" alt="Image not found">
-              <div class="ratings mb-2 text-warning">
-                <i class="fa-solid fa-star greenyellow-color"></i>
-                <i class="fa-solid fa-star greenyellow-color"></i>
-                <i class="fa-solid fa-star greenyellow-color"></i>
-                <i class="fa-solid fa-star greenyellow-color"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
+
+
+              <?php
+              $returnRating = $connectionObj->avg_rating($row['worker_id']);
+              echo
+              "
+                <div class='my-1 text-center'>
+                <i class='fa-solid fa-star text-warning'></i>
+                <span class='text-white'>$returnRating/5</span>
+                </div>
+              ";
+              ?>
+
               <div class="text-white">
-                <p><span class="fw-bold">Charge:</span> 700TK</p>
+                <h5 class="card-title light-gray"><?php echo $row['workerType']; ?></h5>
               </div>
             </div>
             <div class="col-md-7">
               <div class="card-body">
-                <h5 class="card-title light-gray"><?php echo $row['workerType']; ?></h5>
-                <p class="card-text light-gray"><i class="fa-solid fa-phone-volume"></i> <?php echo $row['worker_phone_number']; ?></p>
-
                 <address class="card-title light-gray">Address: <?php echo $row['present_address']; ?></address>
                 <div>
                   <a href="/../manpowerbd/user/worker-detail.php?id=<?php echo $row['worker_id']; ?>" class="btn btn-warning px-3 py-2 mt-3 font-M">

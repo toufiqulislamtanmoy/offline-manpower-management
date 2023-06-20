@@ -40,24 +40,14 @@ class ManageUser
 
     //Display a single worker profile to the user
 
-    function viewWorkerProfile($data,$userId)
+    function viewWorkerProfile($data)
     {
         $workerId = $data['id'];
-        $query1 = "SELECT worker_full_name, worker_photo, present_address, workerType,gender FROM workersignup WHERE worker_id =$workerId";
+        $query1 = "SELECT worker_full_name, worker_photo, present_address, workerType, gender FROM workersignup WHERE worker_id = $workerId";
         $WorkerProfileResult = mysqli_query($this->conn, $query1);
 
-        
-        
-        
-        // to do use this query in next
-
-        // $query = "SELECT w.worker_full_name, w.worker_photo, w.present_address, w.workerType, w.gender, h.user_rating, h.user_review, h.end_date, u.* 
-        // FROM workersignup w 
-        // LEFT JOIN hire_table h ON w.worker_id = h.worker_id 
-        // LEFT JOIN usersignup u ON w.userId = u.userId 
-        // WHERE w.worker_id = $workerId";
-
-
+        $query2 = "SELECT AVG(user_rating) AS avg_rating FROM hire_table WHERE worker_id = $workerId";
+        $result = mysqli_query($this->conn, $query2);
 
         if ($WorkerProfileResult) {
             // Fetch the result row
@@ -65,6 +55,20 @@ class ManageUser
 
             // Free the result set
             mysqli_free_result($WorkerProfileResult);
+
+            if ($result) {
+                $ratingRow = mysqli_fetch_assoc($result);
+                $avgRating = number_format($ratingRow['avg_rating'], 1);
+
+                // Add the average rating to the $row array
+                $row['avg_rating'] = $avgRating;
+                
+            } 
+            else {
+                // Handle query error and set an alert message
+                $errorMessage = "Error executing the query: " . mysqli_error($this->conn);
+                echo '<script>alert("' . $errorMessage . '");</script>';
+            }
 
             // Return the retrieved data
             return $row;
@@ -76,6 +80,30 @@ class ManageUser
             return null; // or return an appropriate error indicator
         }
     }
+
+    function user_review($workerId) {
+        $query = "SELECT ht.user_review, ht.user_rating, ht.review_date, us.UserName, us.profileImage
+            FROM hire_table ht
+            JOIN usersignup us ON ht.userId = us.userId
+            WHERE ht.worker_id = $workerId";
+    
+        $reviews = mysqli_query($this->conn, $query);
+        
+        if ($reviews) {
+            $result = array();
+            while ($row = mysqli_fetch_assoc($reviews)) {
+                $result[] = $row;
+            }
+            return $result;
+        } else {
+            // Handle query error and set an alert message
+            $errorMessage = "Error executing the query: " . mysqli_error($this->conn);
+            echo '<script>alert("' . $errorMessage . '");</script>';
+            return null;
+        }
+    }
+    
+
 
     // pagination 
 
@@ -98,6 +126,17 @@ class ManageUser
         $result = mysqli_query($this->conn, $query);
         return $result;
     }
+    // find average rating
+    function avg_rating($worker_id){
+        $query = "SELECT AVG(user_rating) AS avg_rating FROM hire_table WHERE worker_id = $worker_id";
+        $result = mysqli_query($this->conn, $query);
+        if ($result) {
+            $ratingRow = mysqli_fetch_assoc($result);
+            $avgRating = number_format($ratingRow['avg_rating'], 1);
+            return $avgRating;
+        } 
+    }
+    
     // search the data 
     function searchWorkers($limit, $offset, $searchInput)
     {
@@ -106,8 +145,6 @@ class ManageUser
         $result = mysqli_query($this->conn, $query);
         return $result;
     }
-
-    
 }
 
 
