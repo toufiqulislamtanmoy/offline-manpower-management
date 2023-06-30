@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <?php
+session_start();
 include('Includes/head.php');
 ?>
 
-<body  >
-  
+<body>
+
   <?php
-    include('Includes/navbar.php');
+  include('Includes/navbar.php');
   ?>
   <main style="min-height: calc(100vh - 25vh);">
     <?php
-    
-    if($views == 'home'){
-      include('Views/home-views.php');
-    }elseif($views == 'user-profile'){
-      include('Views/user-profile-view.php');
-    }else if($views == 'worker-detail'){
-      include('Views/worker-detail-view.php');
+    if ($_SESSION['user_id']) {
+      if ($views == 'home') {
+        include('Views/home-views.php');
+      } elseif ($views == 'user-profile') {
+        include('Views/user-profile-view.php');
+      } else if ($views == 'worker-detail') {
+        include('Views/worker-detail-view.php');
+      }
+    }else{
+      echo "<script>window.location.replace('/../manpowerbd/index.php');</script>";
     }
-    
+
+
     ?>
   </main>
 
- <?php
+  <?php
   include('Includes/footer.php');
- ?>
+  ?>

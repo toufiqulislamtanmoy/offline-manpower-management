@@ -10,13 +10,13 @@ This is a markdown file containing a to-do list for managing tasks and tracking 
 - [📝] Payment functionality implement⏳
 - [📝] Complete user dashboard⏳
 - [📝] Worker user dashboard⏳
-- [📝] Logout functionality implement for user⏳
 - [📝] Logout functionality implement for worker⏳
 
 ## Completed Tasks
 
 - [✅] Show the worker Detail page dynamically and load data from database 
 - [✅] searching functionality    
+- [✅] Logout functionality implement for user⏳    
 
 ## Guidelines
 

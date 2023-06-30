@@ -43,7 +43,7 @@ class ManageUser
     function viewWorkerProfile($data)
     {
         $workerId = $data['id'];
-        $query1 = "SELECT worker_full_name, worker_photo, present_address, workerType, gender FROM workersignup WHERE worker_id = $workerId";
+        $query1 = "SELECT worker_full_name, worker_photo, present_address, workerType, gender,points FROM workersignup WHERE worker_id = $workerId";
         $WorkerProfileResult = mysqli_query($this->conn, $query1);
 
         $query2 = "SELECT AVG(user_rating) AS avg_rating FROM hire_table WHERE worker_id = $workerId";

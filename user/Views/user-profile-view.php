@@ -4,6 +4,7 @@
 $connectionObj = new ManageUser();
 
 $userId = $_SESSION['user_id'];
+
 $user = $connectionObj->user_details($userId);
 ?>
 <section class="container mt-7rem">

@@ -1,5 +1,20 @@
 <?php
 include("functions/connection.php");
+
+if (isset($_SESSION['user_id'])) {
+  echo '<script>';
+  echo 'console.log("User ID: 202");';
+  echo '</script>';
+  $loggedIn = true;
+  $connectionObj = new Main();
+  $userId = $_SESSION['user_id'];
+  $user = $connectionObj->user_details($userId);
+} else {
+  $loggedIn = false;
+  echo '<script>';
+  echo 'console.log("User ID: 404");';
+  echo '</script>';
+}
 ?>
 
 <!doctype html>
@@ -9,17 +24,14 @@ include("functions/connection.php");
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home</title>
-    <!-- Favicon icon -->
-    <link rel="icon" href="/../manpowerbd/assests/img/icons/favicon.png" type="image/png">
+  <!-- Favicon icon -->
+  <link rel="icon" href="/../manpowerbd/assests/img/icons/favicon.png" type="image/png">
   <!-- Bootstrap CDN link -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <!-- Google Fonts link -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700&family=Montserrat:wght@800&family=Poppins&family=Tilt+Prism&family=Work+Sans&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700&family=Montserrat:wght@800&family=Poppins&family=Tilt+Prism&family=Work+Sans&display=swap" rel="stylesheet">
   <!-- Font awesome cdn -->
   <script src="https://kit.fontawesome.com/2137699d39.js" crossorigin="anonymous"></script>
   <!-- My custom css -->
@@ -28,16 +40,12 @@ include("functions/connection.php");
 
 <body>
 
-  <header>
+  <header class="container">
     <!-- Navabr -->
-    <nav class=" px-2  navbar-expand-lg navbar navbar-dark bg-dark">
+    <nav  class="container navbar-expand-lg navbar navbar-dark bg-dark shadow-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><span class="font-M fs-4"><span
-              class=" fs-2 text-uppercase color-org">M</span>anp<span
-              class=" fs-2 text-uppercase color-org">o</span>wer<span
-              class=" fs-2 text-uppercase color-org">bd</span></span></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#"><span class="font-M fs-4"><span class=" fs-2 text-uppercase color-org">M</span>anp<span class=" fs-2 text-uppercase color-org">o</span>wer<span class=" fs-2 text-uppercase color-org">bd</span></span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -54,16 +62,34 @@ include("functions/connection.php");
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact US</a>
             </li>
+            <?php if ($loggedIn) { ?>
+              <li class="nav-item">
+                <a class="nav-link" href="user/home.php">Find Worker</a>
+              </li>
+            <?php } ?>
           </ul>
-          <!-- SIghnup Button Starts from here -->
-          <button type="button" class="btn btn-info text-white me-2"  data-bs-toggle="modal" data-bs-target="#signupPreview">
-            Sign Up
-          </button>
-          <!-- CLicking options starts from Here -->
-          <!-- login option preview -->
+          <?php if (!$loggedIn) { ?>
+            <!-- SIgnup Button Starts from here -->
+            <button type="button" class="btn btn-info text-white me-2" data-bs-toggle="modal" data-bs-target="#signupPreview">
+              Sign Up
+            </button>
+            <!-- Button trigger modal -->
+            <button type="button" class="ms-2 btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#login-preview">
+              Login
+            </button>
+          <?php } else { ?>
+            <div class="dropdown">
+              <img style="height: 44px; width:44px; cursor: pointer;" src="/../manpowerbd/user/upload/<?php echo $user['profileImage'] ?>" alt="not found" class="dropdown-toggle rounded-circle border border-3 " data-bs-toggle="dropdown" aria-expanded="false"/>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Profile Setting</a></li>
+                <li><a class="dropdown-item" href="user/logout.php">Log Out</a></li>
+              </ul>
+            </div>
+          <?php } ?>
+
+          <!-- signup option preview -->
           <!-- Modal -->
-          <div class="modal fade" id="signupPreview" tabindex="-1" aria-labelledby="signupPreviewLabel"
-            aria-hidden="true">
+          <div class="modal fade" id="signupPreview" tabindex="-1" aria-labelledby="signupPreviewLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
@@ -86,15 +112,10 @@ include("functions/connection.php");
           </div>
 
 
-          <!-- Button trigger modal -->
-          <button type="button" class="ms-2 btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#login-preview">
-            Login
-          </button>
 
           <!-- login option preview -->
           <!-- Modal -->
-          <div class="modal fade" id="login-preview" tabindex="-1" aria-labelledby="login-previewLabel"
-            aria-hidden="true">
+          <div class="modal fade" id="login-preview" tabindex="-1" aria-labelledby="login-previewLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
@@ -202,12 +223,9 @@ include("functions/connection.php");
       <h1 class="fs-1 fw-bold text-center font-M my-5">Team</h1>
       <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="2000">
@@ -319,9 +337,7 @@ include("functions/connection.php");
   </footer>
 
   <!-- Bootstrap Script CDN link -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 
 </html>

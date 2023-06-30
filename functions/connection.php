@@ -47,7 +47,7 @@ class Main
                     echo "<script>console.log('Logged-in user ID: " .$_SESSION['user_id'] . "');</script>";
                 
                 
-                echo "<script>window.location.replace('user/home.php');</script>";
+                echo "<script>window.location.replace('index.php');</script>";
             }
         }
     }
@@ -316,6 +316,16 @@ class Main
     //         return "An Error Occur";
     //     }
     // }
+    function user_details($user_id){
+        $query = "SELECT *FROM usersignup WHERE userId = $user_id";
+        $result = mysqli_query($this->conn, $query);
+        if ($result) {
+            $row = mysqli_fetch_assoc($result);
+            return $row;
+        } else {
+            return "An Error Occur";
+        }
+    }
 
     }
 

@@ -63,8 +63,8 @@ if (isset($_GET['search'])) {
                 <address class="card-title light-gray"><span class="fw-bold">Address: </span><?php echo $row['present_address']; ?></address>
                 <table class="text-white">
                   <tr>
-                    <td>Full Day:</td>
-                    <td><?php
+                    <td>Full Day</td>
+                    <td>:<?php
                         if ($row['points'] > 100) {
                           echo $row['points'] * 0.03 + 700;
                         } else {
@@ -73,15 +73,15 @@ if (isset($_GET['search'])) {
                         ?> BDT</td>
                   </tr>
                   <tr>
-                    <td>Hourly:</td>
-                    <td>
+                    <td>Hourly</td>
+                    <td>:
                       <?php
                       if ($row['points'] > 100) {
                         echo $row['points'] * 0.03 + 100;
                       } else {
                         echo 100;
                       }
-                      ?> BDT
+                      ?> BDT/hr
                     </td>
                   </tr>
                 </table>

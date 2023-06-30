@@ -34,11 +34,9 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Log Out</a>
+              <a class="nav-link" href="/../manpowerbd/user/logout.php">Log Out</a>
             </li>
           </ul>
-          
-
         </div>
       </div>
     </div>
