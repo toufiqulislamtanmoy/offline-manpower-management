@@ -64,11 +64,25 @@ if (isset($_GET['search'])) {
                 <table class="text-white">
                   <tr>
                     <td>Full Day:</td>
-                    <td>700 BDT</td>
+                    <td><?php
+                        if ($row['points'] > 100) {
+                          echo $row['points'] * 0.03 + 700;
+                        } else {
+                          echo 700;
+                        }
+                        ?> BDT</td>
                   </tr>
                   <tr>
                     <td>Hourly:</td>
-                    <td>100 BDT/hr</td>
+                    <td>
+                      <?php
+                      if ($row['points'] > 100) {
+                        echo $row['points'] * 0.03 + 100;
+                      } else {
+                        echo 100;
+                      }
+                      ?> BDT
+                    </td>
                   </tr>
                 </table>
               </div>
