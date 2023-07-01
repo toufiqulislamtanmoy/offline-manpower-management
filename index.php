@@ -42,7 +42,7 @@ if (isset($_SESSION['user_id'])) {
 
   <header class="container">
     <!-- Navabr -->
-    <nav  class="container navbar-expand-lg navbar navbar-dark bg-dark shadow-lg">
+    <nav class="container navbar-expand-lg navbar navbar-dark bg-dark shadow-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="#"><span class="font-M fs-4"><span class=" fs-2 text-uppercase color-org">M</span>anp<span class=" fs-2 text-uppercase color-org">o</span>wer<span class=" fs-2 text-uppercase color-org">bd</span></span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,18 +70,18 @@ if (isset($_SESSION['user_id'])) {
           </ul>
           <?php if (!$loggedIn) { ?>
             <!-- SIgnup Button Starts from here -->
-            <button type="button" class="btn btn-info text-white me-2" data-bs-toggle="modal" data-bs-target="#signupPreview">
+            <button type="button" class="bg-transparent text-white border-0 me-2" data-bs-toggle="modal" data-bs-target="#signupPreview">
               Sign Up
             </button>
             <!-- Button trigger modal -->
-            <button type="button" class="ms-2 btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#login-preview">
+            <button type="button" class="ms-2 bg-transparent text-white border-0" data-bs-toggle="modal" data-bs-target="#login-preview">
               Login
             </button>
           <?php } else { ?>
             <div class="dropdown">
-              <img style="height: 44px; width:44px; cursor: pointer;" src="/../manpowerbd/user/upload/<?php echo $user['profileImage'] ?>" alt="not found" class="dropdown-toggle rounded-circle border border-3 " data-bs-toggle="dropdown" aria-expanded="false"/>
+              <img style="height: 44px; width:44px; cursor: pointer;" src="/../manpowerbd/user/upload/<?php echo $user['profileImage'] ?>" alt="not found" class="dropdown-toggle rounded-circle border border-3 " data-bs-toggle="dropdown" aria-expanded="false" />
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Profile Setting</a></li>
+                <li><a class="dropdown-item" href="user/user-profile.php">Profile Setting</a></li>
                 <li><a class="dropdown-item" href="user/logout.php">Log Out</a></li>
               </ul>
             </div>
@@ -231,9 +231,11 @@ if (isset($_SESSION['user_id'])) {
           <div class="carousel-item active" data-bs-interval="2000">
             <img src="assests/img/gradent/bg-01.jpg" class=" d-block  c-img-h" alt="...">
             <div class="carousel-caption  d-md-block">
-              <img class="prof-img" src="assests/img/team/0.png" alt="">
-              <h5 class="fs-3 fw-bold font-M text-white my-1">Toufiqul Islam Tanmoy</h5>
-              <p class=" text-white">Lead Designer</p>
+              <a class="text-decoration-none" href="https://toufiqulislamtanmoy.web.app/" target="_blank">
+                <img class="prof-img" src="assests/img/team/0.png" alt="">
+                <h5 class="fs-3 fw-bold font-M text-white my-1">Toufiqul Islam Tanmoy</h5>
+                <p class=" text-white">Founder & Developer</p>
+              </a>
             </div>
           </div>
           <div class="carousel-item" data-bs-interval="2000">

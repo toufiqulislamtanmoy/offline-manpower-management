@@ -1,4 +1,3 @@
-<?php session_start() ?>
 <?php include_once(__DIR__ . '/../userFunction/manageUser.php'); ?>
 <?php
 $connectionObj = new ManageUser();
@@ -9,10 +8,42 @@ $userId = $_SESSION['user_id'];
 $returnData = $connectionObj->viewWorkerProfile(['id' => $workerId], $userId);
 $returnReviews = $connectionObj->user_review($workerId, $userId);
 $user = $connectionObj->user_details($userId);
-
-// $reviewAndRating = $connectionObj ->userReview(['id' => $workerId])
-
+// worker hiring process start here
+if (isset($_POST['hire'])) {
+    $result = $connectionObj->hiring($_POST, $userId, $workerId);
+}
 ?>
+<!-- Add this in your HTML file's body section -->
+<script>
+    // Function to show a success message using SweetAlert
+    function showSuccessMessage(message) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: message,
+            timer: 3000, // Auto close the alert after 3 seconds
+            showConfirmButton: false
+        });
+    }
+
+    // Function to show an error message using SweetAlert
+    function showErrorMessage(message) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: message
+        });
+    }
+
+    // Check if the PHP variable $result is set and contains a value
+    <?php if (isset($result)) { ?>
+        <?php if ($result === "Success") { ?>
+            showSuccessMessage("<?php echo $result; ?>");
+        <?php } else { ?>
+            showErrorMessage("<?php echo $result; ?>");
+        <?php } ?>
+    <?php } ?>
+</script>
 
 <script>
     var workerId = "<?php echo $workerId; ?>"; // Pass the workerId variable to JavaScript
@@ -62,8 +93,10 @@ $user = $connectionObj->user_details($userId);
                                 <?php
                                 if ($returnData['points'] > 100) {
                                     echo $returnData['points'] * 0.03 + 700;
+                                    $salary = $returnData['points'] * 0.03 + 700;
                                 } else {
                                     echo 700;
+                                    $salary = 700;
                                 }
                                 ?> BDT
                             </td>
@@ -74,8 +107,10 @@ $user = $connectionObj->user_details($userId);
                                 <?php
                                 if ($returnData['points'] > 100) {
                                     echo $returnData['points'] * 0.03 + 100;
+                                    $hourSalary = $returnData['points'] * 0.03 + 100;
                                 } else {
                                     echo 100;
+                                    $hourSalary = 100;
                                 }
                                 ?> BDT/hr
                             </td>
@@ -104,6 +139,10 @@ $user = $connectionObj->user_details($userId);
                                             <input readonly type="text" class="form-control" id="user_name" name="user_name" value="<?php echo $user['UserName']; ?>">
                                         </div>
                                         <div class="mb-3">
+                                            <label for="working_date" class="col-form-label">Working Date:</label>
+                                            <input type="date" class="form-control" id="working_date" name="working_date">
+                                        </div>
+                                        <div class="mb-3">
                                             <label for="hiringType" class="col-form-label">Hiring Type:</label>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="hiringType" id="inlineRadio1" value="Full Day" onclick="toggleHoursInput(false)">
@@ -115,14 +154,16 @@ $user = $connectionObj->user_details($userId);
                                             </div>
                                             <div class="mb-3" id="hourlyInput" style="display: none;">
                                                 <label for="hour" class="col-form-label">Hours:</label>
-                                                <input 
-                                                required 
-                                                type="text" 
-                                                class="form-control" 
-                                                id="hour" 
-                                                name="hour" 
-                                                placeholder="How many hours need to work?"
-                                                >
+                                                <input required type="text" class="form-control" id="hour" name="hour" placeholder="How many hours need to work?">
+                                            </div>
+                                            <!-- Add a hidden field to store the full-day and hourly salary values -->
+                                            <input type="hidden" id="fullDaySalary" value="<?php echo $salary; ?>">
+                                            <input type="hidden" id="hourlySalary" name="working_hour" value="<?php echo $hourSalary; ?>">
+
+                                            <!-- Display the salary based on hiring type using JavaScript -->
+                                            <div class="mb-3">
+                                                <label for="salary" class="col-form-label">Salary:</label>
+                                                <input readonly type="text" class="form-control" id="salary" name="salary" value="">
                                             </div>
                                         </div>
                                         <input type="submit" value="Hire" class="btn btn-outline-success" name="hire">
@@ -141,13 +182,35 @@ $user = $connectionObj->user_details($userId);
                                                 hourlyInput.style.display = 'none';
                                                 hoursInput.readOnly = true;
                                             }
+
+                                            // Recalculate the salary whenever the hiring type is changed
+                                            calculateSalary();
+                                        }
+
+                                        // Function to calculate the salary based on the hiring type and hours worked
+                                        function calculateSalary() {
+                                            const fullDaySalary = parseFloat(document.getElementById('fullDaySalary').value);
+                                            const hourlySalary = parseFloat(document.getElementById('hourlySalary').value);
+                                            const hoursInput = document.getElementById('hour');
+
+                                            if (document.getElementById('inlineRadio1').checked) {
+                                                // Full Day hiring selected
+                                                document.getElementById('salary').value = fullDaySalary.toFixed(2);
+                                            } else if (document.getElementById('inlineRadio2').checked) {
+                                                // Hourly hiring selected
+                                                const hoursWorked = parseFloat(hoursInput.value);
+                                                if (!isNaN(hoursWorked)) {
+                                                    const totalSalary = hourlySalary * hoursWorked;
+                                                    document.getElementById('salary').value = totalSalary.toFixed(2);
+                                                }
+                                            }
                                         }
 
                                         // Get the radio button elements
                                         const hourlyRadio = document.getElementById('inlineRadio2');
                                         const hourlyInput = document.getElementById('hourlyInput');
 
-                                        // Add an event listener to the radio button to detect changes
+                                        // Add event listeners to detect changes in the radio buttons and hours input
                                         hourlyRadio.addEventListener('change', function() {
                                             // If the "Hourly" radio button is selected, show the "Hours" input field; otherwise, hide it
                                             if (this.checked) {
@@ -158,6 +221,12 @@ $user = $connectionObj->user_details($userId);
                                                 }
                                             }
                                         });
+
+                                        // Add an event listener to the hours input field to recalculate the salary when hours are changed
+                                        document.getElementById('hour').addEventListener('input', calculateSalary);
+
+                                        // Call the calculateSalary() function initially to set the correct salary based on the default hiring option
+                                        calculateSalary();
                                     </script>
 
 

@@ -157,6 +157,27 @@ class ManageUser
             return "An Error Occur";
         }
     }
+
+    function hiring($data, $uId, $wId) {
+        $hiringDate = date('Y-m-d'); // Use 'Y-m-d' format for MySQL date
+        $startDate = $data['working_date'];
+        $charge = $data['salary'];
+        $payment_status = "Pending";
+        $notification_status = 1;
+        $workingType = $data['hiringType'];
+        $workingHour = isset($data['hour']) && is_numeric($data['hour']) ? $data['hour'] : 'N/A';
+    
+        $query = "INSERT INTO hire_table (userId, worker_id, hire_date, start_date, charge, payment_status, notification_status, working_method, working_hour)
+                  VALUES ($uId, $wId, '$hiringDate', '$startDate', $charge, '$payment_status', $notification_status, '$workingType', '$workingHour');";
+    
+        $result = mysqli_query($this->conn, $query);
+        if ($result) {
+            return "Success";
+        } else {
+            return "An error occurred";
+        }
+    }
+    
 }
 
 

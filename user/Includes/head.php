@@ -21,7 +21,7 @@
     rel="stylesheet">
   <!-- Font awesome cdn -->
   <script src="https://kit.fontawesome.com/2137699d39.js" crossorigin="anonymous"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
 
   <!-- My custom css -->
   <link rel="stylesheet" href="../assests/css/main.css">
