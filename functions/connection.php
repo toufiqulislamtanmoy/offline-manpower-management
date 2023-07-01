@@ -38,15 +38,15 @@ class Main
             <script>
                 alert('Enter Valid Username or Password');
             </script>
-        <?php
+            <?php
         } else {
             while ($row = mysqli_fetch_assoc($loginInfo)) {
                 $_SESSION['user_id'] = $row['userId'];
-                
-                    // Display the user ID in an alert message
-                    echo "<script>console.log('Logged-in user ID: " .$_SESSION['user_id'] . "');</script>";
-                
-                
+
+                // Display the user ID in an alert message
+                echo "<script>console.log('Logged-in user ID: " . $_SESSION['user_id'] . "');</script>";
+
+
                 echo "<script>window.location.replace('index.php');</script>";
             }
         }
@@ -54,16 +54,57 @@ class Main
     // Thus is user signup function
     function user_signup($data)
     {
+        $apiKey = 'cf6bb3b03fa4376aa28f506d68c0272c';
+
         $userFullName = $data['userFullname'];
         $userNid = $data['userNID'];
         $userPhoneNumber = $data['userPhoneNumber'];
         $userAddress = $data['userAddress'];
-        
+
         $userEmail = $data['userEmail'];
         $userPassword = $data['userPassword'];
         $userConfrimPassword = $data['userConfrimPassword'];
         $prof_img_name = $_FILES['userProfile']['name'];
         $prof_img_temp_name = $_FILES['userProfile']['tmp_name'];
+
+        // Prepare the image data for upload
+        $imageData = file_get_contents($prof_img_temp_name);
+        $base64Image = base64_encode($imageData);
+
+        // Create the POST data
+        $data = array(
+            'key' => $apiKey,
+            'image' => $base64Image,
+            // Additional optional parameters can be added here, such as 'name' or 'expiration'
+        );
+
+
+        // Set the cURL options
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.imgbb.com/1/upload');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+
+        // Execute the cURL request and get the response
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        // Decode the JSON response
+        $result = json_decode($response, true);
+
+        // Check if the upload was successful
+        if ($result['status'] == 200) {
+            // Image uploaded successfully
+            $imageUrl = $result['data']['url'];
+            echo "Image URL: " . $imageUrl;
+        } else {
+            // Upload failed
+            echo "Upload failed: " . $result['error']['message'];
+        }
+
+
         $img_extention = pathinfo($prof_img_name, PATHINFO_EXTENSION);
 
         echo $prof_img_name;
@@ -126,7 +167,7 @@ class Main
         } else {
             //create user account
             if ($img_extention == "jpg" || $img_extention == "jepg" || $img_extention == "png") {
-                $query = "INSERT INTO usersignup(UserName,UserNID,userPhone,userAddress,userEmail,userPassword,profileImage) VALUES('$userFullName','$userNid','$userPhoneNumber','$userAddress','$userEmail','$userPassword','$prof_img_name')";
+                $query = "INSERT INTO usersignup(UserName,UserNID,userPhone,userAddress,userEmail,userPassword,profileImage) VALUES('$userFullName','$userNid','$userPhoneNumber','$userAddress','$userEmail','$userPassword','$imageUrl')";
                 $insert_data = mysqli_query($this->conn, $query);
                 if ($insert_data) {
                     move_uploaded_file($prof_img_temp_name, 'user/upload/' . $prof_img_name);
@@ -149,6 +190,10 @@ class Main
     // Thus is worker signup function
     function worker_signup($data)
     {
+
+        $apiKey = 'cf6bb3b03fa4376aa28f506d68c0272c';
+
+
         $workerFullname = $data['workerFullname'];
         $fatherName = $data['fatherName'];
         $dob = $data['dob'];
@@ -163,6 +208,45 @@ class Main
         $workerConfrimPassword = $data['workerConfrimPassword'];
         $prof_img_name = $_FILES['workerProfile']['name'];
         $prof_img_temp_name = $_FILES['workerProfile']['tmp_name'];
+
+        // Prepare the image data for upload
+        $imageData = file_get_contents($prof_img_temp_name);
+        $base64Image = base64_encode($imageData);
+
+        // Create the POST data
+        $data = array(
+            'key' => $apiKey,
+            'image' => $base64Image,
+            // Additional optional parameters can be added here, such as 'name' or 'expiration'
+        );
+
+
+        // Set the cURL options
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.imgbb.com/1/upload');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+
+        // Execute the cURL request and get the response
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        // Decode the JSON response
+        $result = json_decode($response, true);
+
+        // Check if the upload was successful
+        if ($result['status'] == 200) {
+            // Image uploaded successfully
+            $imageUrl = $result['data']['url'];
+            echo "Image URL: " . $imageUrl;
+        } else {
+            // Upload failed
+            echo "Upload failed: " . $result['error']['message'];
+        }
+
+
         $img_extention = pathinfo($prof_img_name, PATHINFO_EXTENSION);
 
 
@@ -263,7 +347,7 @@ class Main
             return "Password and Confirm Password do not match.";
         } else {
             if ($img_extention == "jpg" || $img_extention == "jepg" || $img_extention == "png") {
-                $query = "INSERT INTO workersignup(worker_full_name,father_name,date_of_birth,worker_photo,nid_number,worker_phone_number,present_address,parmanennt_address,worker_password,worker_status,worker_email,workerType,gender) VALUES('$workerFullname','$fatherName','$dob','$prof_img_name','$workerNid','$workerPhone','$workerAddrss','$workerPAddrss','$workerPassword',1,'$workerEmail','$workerType','$gender')";
+                $query = "INSERT INTO workersignup(worker_full_name,father_name,date_of_birth,worker_photo,nid_number,worker_phone_number,present_address,parmanennt_address,worker_password,worker_status,worker_email,workerType,gender,points) VALUES('$workerFullname','$fatherName','$dob','$imageUrl','$workerNid','$workerPhone','$workerAddrss','$workerPAddrss','$workerPassword',1,'$workerEmail','$workerType','$gender',100)";
 
                 $insert_data = mysqli_query($this->conn, $query);
 
@@ -306,7 +390,7 @@ class Main
     }
 
     // Display all the worker in to user interface
-    
+
     // function displayWorkerInUserInterFace(){
     //     $query = "SELECT *FROM workersignup";
     //     $result = mysqli_query($this->conn, $query);
@@ -316,7 +400,8 @@ class Main
     //         return "An Error Occur";
     //     }
     // }
-    function user_details($user_id){
+    function user_details($user_id)
+    {
         $query = "SELECT *FROM usersignup WHERE userId = $user_id";
         $result = mysqli_query($this->conn, $query);
         if ($result) {
@@ -326,8 +411,7 @@ class Main
             return "An Error Occur";
         }
     }
-
-    }
+}
 
 
 

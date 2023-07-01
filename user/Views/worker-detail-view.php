@@ -64,7 +64,7 @@ if (isset($_POST['hire'])) {
             <div class="card">
                 <div class="py-md-3 ">
                     <div class="my-1 text-center">
-                        <img style="height: 220px; width:220px" src="/../manpowerbd/worker/upload/<?php echo $returnData['worker_photo']; ?>" class="card-img-top rounded-circle border border-5 border-secondary shadow-lg" alt="...">
+                        <img style="height: 220px; width:220px" src="<?php echo $returnData['worker_photo']; ?>" class="card-img-top rounded-circle border border-5 border-secondary shadow-lg" alt="...">
                     </div>
                     <div class="my-1 text-center">
                         <i class="fa-solid fa-star"></i>
@@ -252,7 +252,7 @@ if (isset($_POST['hire'])) {
                     <div class="card">
                         <div class="card-header d-flex align-items-start gap-4">
                             <div>
-                                <img class="rounded-circle" style="height: 60px; width:60px" src="/../manpowerbd/user/upload/<?php echo $profileImage; ?>" alt="">
+                                <img class="rounded-circle" style="height: 60px; width:60px" src="<?php echo $profileImage; ?>" alt="">
                             </div>
                             <div>
                                 <h6><?php echo $userName; ?></h6>

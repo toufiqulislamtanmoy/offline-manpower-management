@@ -79,7 +79,7 @@ if (isset($_SESSION['user_id'])) {
             </button>
           <?php } else { ?>
             <div class="dropdown">
-              <img style="height: 44px; width:44px; cursor: pointer;" src="/../manpowerbd/user/upload/<?php echo $user['profileImage'] ?>" alt="not found" class="dropdown-toggle rounded-circle border border-3 " data-bs-toggle="dropdown" aria-expanded="false" />
+              <img style="height: 44px; width:44px; cursor: pointer;" src="<?php echo $user['profileImage'] ?>" alt="not found" class="dropdown-toggle rounded-circle border border-3 " data-bs-toggle="dropdown" aria-expanded="false" />
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="user/user-profile.php">Profile Setting</a></li>
                 <li><a class="dropdown-item" href="user/logout.php">Log Out</a></li>

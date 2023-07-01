@@ -46,8 +46,8 @@ class ManageUser
         $query1 = "SELECT worker_full_name, worker_photo, present_address, workerType, gender,points FROM workersignup WHERE worker_id = $workerId";
         $WorkerProfileResult = mysqli_query($this->conn, $query1);
 
-        $query2 = "SELECT AVG(user_rating) AS avg_rating FROM hire_table WHERE worker_id = $workerId";
-        $result = mysqli_query($this->conn, $query2);
+        $query = "SELECT AVG(user_rating) AS avg_rating FROM hire_table WHERE worker_id = $workerId AND user_rating > 0";
+        $result = mysqli_query($this->conn, $query);
 
         if ($WorkerProfileResult) {
             // Fetch the result row
@@ -85,7 +85,7 @@ class ManageUser
         $query = "SELECT ht.user_review, ht.user_rating, ht.review_date, us.UserName, us.profileImage
             FROM hire_table ht
             JOIN usersignup us ON ht.userId = us.userId
-            WHERE ht.worker_id = $workerId";
+            WHERE ht.worker_id = $workerId AND ht.payment_status = 'paid'";
     
         $reviews = mysqli_query($this->conn, $query);
         
@@ -128,7 +128,7 @@ class ManageUser
     }
     // find average rating
     function avg_rating($worker_id){
-        $query = "SELECT AVG(user_rating) AS avg_rating FROM hire_table WHERE worker_id = $worker_id";
+        $query = "SELECT AVG(user_rating) AS avg_rating FROM hire_table WHERE worker_id = $worker_id AND user_rating > 0";
         $result = mysqli_query($this->conn, $query);
         if ($result) {
             $ratingRow = mysqli_fetch_assoc($result);

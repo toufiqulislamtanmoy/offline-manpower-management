@@ -12,7 +12,7 @@ $user = $connectionObj->user_details($userId);
         <div class="card mb-3 rounded-4" >
             <div class="d-lg-flex align-items-center">
                 <div class=" p-3">
-                    <img style="height: 220px; width:220px" src="/../manpowerbd/user/upload/<?php echo $user['profileImage']; ?>" class="img-fluid rounded-circle" alt="...">
+                    <img style="height: 220px; width:220px" src="<?php echo $user['profileImage']; ?>" class="img-fluid rounded-circle" alt="...">
                 </div>
                 <div class="">
                     <div class="card-body">

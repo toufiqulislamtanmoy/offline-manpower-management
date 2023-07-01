@@ -39,7 +39,7 @@ if (isset($_GET['search'])) {
             <div class="col-md-5 text-center">
 
               <!-- <img class="img-fluid" src="/../manpowerbd/upload/" class="img-fluid rounded-start" alt="Image not found"> -->
-              <img style="height: 120px; width:120px" class="img-fluid rounded-circle" src="/../manpowerbd/worker/upload/<?php echo $row['worker_photo']; ?>" class="img-fluid rounded-start" alt="Image not found">
+              <img style="height: 120px; width:120px" class="img-fluid rounded-circle" src="<?php echo $row['worker_photo']; ?>" class="img-fluid rounded-start" alt="Image not found">
 
 
               <?php
