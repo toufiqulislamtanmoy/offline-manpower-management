@@ -19,11 +19,14 @@ if (isset($_POST['hire'])) {
     function showSuccessMessage(message) {
         Swal.fire({
             icon: 'success',
-            title: 'Success!',
+            title: 'Your Hiring Request Has Been Send Successfully!',
             text: message,
             timer: 3000, // Auto close the alert after 3 seconds
             showConfirmButton: false
         });
+        setTimeout(function() {
+      window.location.replace(window.location.href);
+    }, 2000);
     }
 
     // Function to show an error message using SweetAlert

@@ -18,6 +18,8 @@ include('Includes/head.php');
         include('Views/user-profile-view.php');
       } else if ($views == 'worker-detail') {
         include('Views/worker-detail-view.php');
+      } else if ($views == 'pendingList') {
+        include('Views/pendingList-view.php');
       }
     }else{
       echo "<script>window.location.replace('/../manpowerbd/index.php');</script>";

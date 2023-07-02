@@ -4,8 +4,9 @@ $connectionObj=new Main();
 if(isset($_POST['login'])){
   $result = $connectionObj->user_login($_POST);
 }
-
 ?>
+
+
 
 <!doctype html>
 <html lang="en">
@@ -27,6 +28,7 @@ if(isset($_POST['login'])){
   <script src="https://kit.fontawesome.com/2137699d39.js" crossorigin="anonymous"></script>
   <!-- My custom css -->
   <link rel="stylesheet" href="assests/css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
 </head>
 
 <body>

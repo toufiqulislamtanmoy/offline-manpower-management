@@ -17,9 +17,9 @@ class ManageUser
         <?php
         } else {
         ?>
-            <script>
+            <!-- <script>
                 alert("Connection Successfull");
-            </script>
+            </script> -->
 <?php
 
         }
@@ -167,8 +167,8 @@ class ManageUser
         $workingType = $data['hiringType'];
         $workingHour = isset($data['hour']) && is_numeric($data['hour']) ? $data['hour'] : 'N/A';
     
-        $query = "INSERT INTO hire_table (userId, worker_id, hire_date, start_date, charge, payment_status, notification_status, working_method, working_hour)
-                  VALUES ($uId, $wId, '$hiringDate', '$startDate', $charge, '$payment_status', $notification_status, '$workingType', '$workingHour');";
+        $query = "INSERT INTO hire_table (userId, worker_id, hire_date, start_date, charge, payment_status, notification_status, working_method, working_hour,accept)
+                  VALUES ($uId, $wId, '$hiringDate', '$startDate', $charge, '$payment_status', $notification_status, '$workingType', '$workingHour','Pending');";
     
         $result = mysqli_query($this->conn, $query);
         if ($result) {
@@ -177,6 +177,31 @@ class ManageUser
             return "An error occurred";
         }
     }
+
+
+    function pendingList(){
+        $uid = $_SESSION['user_id'];
+        $query = "SELECT * FROM pending_worker_hire_details WHERE (accept = 'Pending' OR payment_status = 'Pending') AND userId = $uid;
+        ";
+        $result = mysqli_query($this->conn, $query);
+        if($result){
+            return $result;
+        }else{
+            return null;
+        }
+    }
+
+    function cancel_hire_request($hireID) {
+        $query = "DELETE FROM hire_table WHERE hire_id = $hireID";
+        $result = mysqli_query($this->conn, $query);
+    
+        if ($result) {
+            return "Success";
+        } else {
+            return "Error";
+        }
+    }
+    
     
 }
 

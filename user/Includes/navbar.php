@@ -15,11 +15,12 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link" href="user-profile.php">Profile</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" aria-current="page" href="home.php">Home</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="pendingList.php">Pending List</a>
+            </li>
+           
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Location
@@ -32,6 +33,9 @@
                 <li><a class="dropdown-item" href="#">Bornali</a></li>
                 <li><a class="dropdown-item" href="#">Rail Gate</a></li>
               </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="user-profile.php">Profile</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/../manpowerbd/user/logout.php">Log Out</a>

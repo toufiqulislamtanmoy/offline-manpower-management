@@ -7,6 +7,7 @@ if(isset($_POST['signup'])){
 
 ?>
 
+
 <!doctype html>
 <html lang="en">
 

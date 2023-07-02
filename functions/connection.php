@@ -42,6 +42,8 @@ class Main
         } else {
             while ($row = mysqli_fetch_assoc($loginInfo)) {
                 $_SESSION['user_id'] = $row['userId'];
+                $_SESSION['UserName'] = $row['UserName'];
+                $_SESSION['userPhone'] = $row['userPhone'];
 
                 // Display the user ID in an alert message
                 echo "<script>console.log('Logged-in user ID: " . $_SESSION['user_id'] . "');</script>";
@@ -105,11 +107,11 @@ class Main
         }
 
 
-        $img_extention = pathinfo($prof_img_name, PATHINFO_EXTENSION);
+        // $img_extention = pathinfo($prof_img_name, PATHINFO_EXTENSION);
 
-        echo $prof_img_name;
-        echo $prof_img_temp_name;
-        echo $img_extention;
+        // echo $prof_img_name;
+        // echo $prof_img_temp_name;
+        // echo $img_extention;
 
         // Validate all fields
         if (empty($userFullName)) {
@@ -166,24 +168,25 @@ class Main
             return "Password and Confirm Password do not match.";
         } else {
             //create user account
-            if ($img_extention == "jpg" || $img_extention == "jepg" || $img_extention == "png") {
-                $query = "INSERT INTO usersignup(UserName,UserNID,userPhone,userAddress,userEmail,userPassword,profileImage) VALUES('$userFullName','$userNid','$userPhoneNumber','$userAddress','$userEmail','$userPassword','$imageUrl')";
-                $insert_data = mysqli_query($this->conn, $query);
-                if ($insert_data) {
-                    move_uploaded_file($prof_img_temp_name, 'user/upload/' . $prof_img_name);
+
+            $query = "INSERT INTO usersignup(UserName,UserNID,userPhone,userAddress,userEmail,userPassword,profileImage) VALUES('$userFullName','$userNid','$userPhoneNumber','$userAddress','$userEmail','$userPassword','$imageUrl')";
+            $insert_data = mysqli_query($this->conn, $query);
+            if ($insert_data) {
             ?>
-                    <script>
-                        alert("Account Created Successfully");
-                        window.location.replace('ulogin.php');
-                    </script>
+                <script>
+                    window.location.replace('ulogin.php');
+                </script>
+            <?php
+            } else {
+            ?>
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: message
+                    });
+                </script>
                 <?php
-                } else {
-                ?>
-                    <script>
-                        alert("An error occur please try again later");
-                    </script>
-                <?php
-                }
             }
         }
     }
