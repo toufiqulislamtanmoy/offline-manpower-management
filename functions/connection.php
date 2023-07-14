@@ -387,7 +387,10 @@ class Main
             return 'Invalid Password or Email';
         } else {
             while ($row = mysqli_fetch_assoc($loginInfo)) {
-                echo "<script>window.location.replace('worker/index.html');</script>";
+                $_SESSION['worker_id'] = $row['worker_id'];
+                $_SESSION['worker_full_name'] = $row['worker_full_name'];
+                $_SESSION['worker_photo'] = $row['worker_photo'];
+                echo "<script>window.location.replace('worker/worker_home.php');</script>";
             }
         }
     }

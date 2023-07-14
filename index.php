@@ -12,7 +12,7 @@ if (isset($_SESSION['user_id'])) {
 } else {
   $loggedIn = false;
   echo '<script>';
-  echo 'console.log("User ID: 404");';
+  echo 'console.log("Worker Photo: ' . $wphoto . '");';
   echo '</script>';
 }
 ?>
@@ -67,8 +67,15 @@ if (isset($_SESSION['user_id'])) {
                 <a class="nav-link" href="user/home.php">Find Worker</a>
               </li>
             <?php } ?>
+
+            <?php if (isset($_SESSION['worker_id'])) { ?>
+              <li class="nav-item">
+                <a class="nav-link" href="worker/worker_home.php">Profile</a>
+              </li>
+            <?php } ?>
+
           </ul>
-          <?php if (!$loggedIn) { ?>
+          <?php if (!$loggedIn && !isset($_SESSION['worker_id'])) { ?>
             <!-- SIgnup Button Starts from here -->
             <button type="button" class="bg-transparent text-white border-0 me-2" data-bs-toggle="modal" data-bs-target="#signupPreview">
               Sign Up
@@ -79,9 +86,21 @@ if (isset($_SESSION['user_id'])) {
             </button>
           <?php } else { ?>
             <div class="dropdown">
-              <img style="height: 44px; width:44px; cursor: pointer;" src="<?php echo $user['profileImage'] ?>" alt="not found" class="dropdown-toggle rounded-circle border border-3 " data-bs-toggle="dropdown" aria-expanded="false" />
+              <img style="height: 44px; width:44px; cursor: pointer;" 
+              src="<?php
+              if (isset($_SESSION['worker_photo'])) {
+                echo $_SESSION['worker_photo'];
+              } elseif (isset($user['profileImage'])) {
+                echo $user['profileImage'];
+              }
+              ?>" alt="not found" class="dropdown-toggle rounded-circle border border-3 " data-bs-toggle="dropdown" aria-expanded="false" />
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="user/user-profile.php">Profile Setting</a></li>
+                <?php
+                if (isset($user['profileImage'])) { ?>
+                  <li><a class="dropdown-item" href="user/user-profile.php">Profile Setting</a></li>
+                <?php }
+                ?>
+
                 <li><a class="dropdown-item" href="user/logout.php">Log Out</a></li>
               </ul>
             </div>

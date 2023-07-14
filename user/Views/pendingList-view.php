@@ -58,6 +58,7 @@ if (isset($_POST['cancel_request'])) {
             <p class="card-text"> <span class="fw-bold">Hire Date: </span> ' . $row['hire_date'] . '</p>
             <p class="card-text"> <span class="fw-bold">Request: </span> ' . $row['accept'] . '</p>
             <p class="card-text"> <span class="fw-bold">Method: </span> ' . $row['working_method'] . '</p>
+            <p class="card-text"> <span class="fw-bold">Payable Amount: </span> ' . $row['charge'] . ' BDT</p>
             <p class="card-text"> <span class="fw-bold">Working Hour: </span> ' . $row['working_hour'] . '</p>';
       if ($row['accept'] == 'Yes') {
         echo '<a href="#" class="btn btn-primary">Pay Now</a>';
