@@ -115,5 +115,48 @@ class WorkerFunction
         }
     }
 
+    function new_notification($wID) {
+        $query = "SELECT COUNT(*) AS total_notifications
+        FROM hire_table
+        WHERE worker_id = $wID AND notification_status = 1";
+    
+        $result = mysqli_query($this->conn, $query);
+        if ($result) {
+            $row = mysqli_fetch_assoc($result);
+            $count = $row['total_notifications'];
+            return $count;
+        } else {
+            return $count = 0;
+        }
+    }
+
+    function notification_details($wid) {
+        $query = "SELECT u.UserName
+        FROM hire_table h
+        JOIN usersignup u ON h.userId = u.userId
+        WHERE h.worker_id = $wid AND h.notification_status = 1";
+    
+        $result = mysqli_query($this->conn, $query);
+        $userNames = array();
+    
+        if ($result && mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $userNames[] = $row['UserName'];
+            }
+            $markAsReadNotification = "UPDATE hire_table
+            SET notification_status = 0
+            WHERE worker_id = $wid;
+            ";
+            $markAsReadNotificationResult = mysqli_query($this->conn, $markAsReadNotification);
+            if($markAsReadNotificationResult){
+                return $userNames;
+            }
+        } else {
+            return "No Notifications Found";
+        }
+    }
+    
+    
+
 }
 ?>

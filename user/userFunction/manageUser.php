@@ -141,7 +141,7 @@ class ManageUser
     function searchWorkers($limit, $offset, $searchInput)
     {
         //to do add the limit and offset for pagination
-        $query = "SELECT * FROM workersignup WHERE worker_full_name LIKE '%$searchInput%' OR workerType LIKE '%$searchInput%'";
+        $query = "SELECT * FROM workersignup WHERE worker_full_name LIKE '%$searchInput%' OR workerType LIKE '%$searchInput%' OR present_address LIKE '%$searchInput%'";
         $result = mysqli_query($this->conn, $query);
         return $result;
     }
