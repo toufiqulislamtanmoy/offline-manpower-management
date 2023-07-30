@@ -16,10 +16,10 @@ $notificationDEtails = $connectionObj->notification_details($wID);
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav m-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">Profile</a>
+          <a class="nav-link" aria-current="page" href="/../manpowerbd/worker/worker_home.php">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Requested Work</a>
+          <a class="nav-link" href="/../manpowerbd/worker/worker_requested_work.php">Requested Work</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Work History</a>
@@ -41,7 +41,7 @@ $notificationDEtails = $connectionObj->notification_details($wID);
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Notifications</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -55,7 +55,7 @@ $notificationDEtails = $connectionObj->notification_details($wID);
                   </p>
                 <?php endforeach; }else{ ?> 
                   <p class="card-text">
-                    <span class="fw-bold">No Request Found</span>
+                    <span class="fw-bold">No Notification Found</span>
                   </p>
                 <?php } 
                 ?>

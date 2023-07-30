@@ -46,9 +46,7 @@ class WorkerFunction
 
                 // Add the average rating to the $row array
                 $row['avg_rating'] = $avgRating;
-                
-            } 
-            else {
+            } else {
                 // Handle query error and set an alert message
                 $errorMessage = "Error executing the query: " . mysqli_error($this->conn);
                 echo '<script>alert("' . $errorMessage . '");</script>';
@@ -66,14 +64,15 @@ class WorkerFunction
     }
 
 
-    function user_review($workerId) {
+    function user_review($workerId)
+    {
         $query = "SELECT ht.user_review, ht.user_rating, ht.review_date, us.UserName, us.profileImage
             FROM hire_table ht
             JOIN usersignup us ON ht.userId = us.userId
             WHERE ht.worker_id = $workerId AND ht.payment_status = 'paid'";
-    
+
         $reviews = mysqli_query($this->conn, $query);
-        
+
         if ($reviews) {
             $result = array();
             while ($row = mysqli_fetch_assoc($reviews)) {
@@ -88,38 +87,41 @@ class WorkerFunction
         }
     }
 
-    function updateStatus($wID, $status){
+    function updateStatus($wID, $status)
+    {
         $query = "UPDATE workersignup
         SET worker_status = $status
         WHERE worker_id  = $wID;
         ";
 
-        $result = mysqli_query($this->conn,$query);
-        if($result){
-            if($status == 0){
+        $result = mysqli_query($this->conn, $query);
+        if ($result) {
+            if ($status == 0) {
                 return "Offline";
-            }else{
+            } else {
                 return "Online";
             }
         }
     }
 
-    function totalEarnings($wId){
+    function totalEarnings($wId)
+    {
         $query = "SELECT SUM(charge) AS total_charge
         FROM hire_table WHERE worker_id= $wId;
         ";
         $result = mysqli_query($this->conn, $query);
-        if($result){
+        if ($result) {
             $amount = mysqli_fetch_assoc($result);
             return $amount;
         }
     }
 
-    function new_notification($wID) {
+    function new_notification($wID)
+    {
         $query = "SELECT COUNT(*) AS total_notifications
         FROM hire_table
         WHERE worker_id = $wID AND notification_status = 1";
-    
+
         $result = mysqli_query($this->conn, $query);
         if ($result) {
             $row = mysqli_fetch_assoc($result);
@@ -130,15 +132,16 @@ class WorkerFunction
         }
     }
 
-    function notification_details($wid) {
+    function notification_details($wid)
+    {
         $query = "SELECT u.UserName
         FROM hire_table h
         JOIN usersignup u ON h.userId = u.userId
         WHERE h.worker_id = $wid AND h.notification_status = 1";
-    
+
         $result = mysqli_query($this->conn, $query);
         $userNames = array();
-    
+
         if ($result && mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $userNames[] = $row['UserName'];
@@ -148,15 +151,56 @@ class WorkerFunction
             WHERE worker_id = $wid;
             ";
             $markAsReadNotificationResult = mysqli_query($this->conn, $markAsReadNotification);
-            if($markAsReadNotificationResult){
+            if ($markAsReadNotificationResult) {
                 return $userNames;
             }
         } else {
             return "No Notifications Found";
         }
     }
-    
-    
 
+
+    function worker_request_list($worker_id)
+    {
+        $query = "SELECT pwhd.hire_id, pwhd.userId, pwhd.charge, pwhd.payment_status, pwhd.accept, pwhd.working_hour, pwhd.working_method, pwhd.start_date, pwhd.end_date, us.UserName, us.userAddress, us.profileImage
+        FROM pending_worker_hire_details pwhd
+        JOIN usersignup us ON pwhd.userId = us.userId
+        WHERE pwhd.worker_id = $worker_id AND pwhd.accept='Pending' OR pwhd.payment_status = 'Pending';
+        ";
+
+        $result = mysqli_query($this->conn, $query);
+
+        if ($result) {
+            $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            return $rows;
+        }
+    }
+
+
+    function worker_task_management($hire_id, $state)
+    {
+        if ($state !== "Yes" && $state !== "No") {
+            return "Invalid state";
+        }
+
+        $query = "UPDATE hire_table
+              SET accept = ?
+              WHERE hire_id = ?";
+
+
+        $stmt = mysqli_prepare($this->conn, $query);
+
+
+        mysqli_stmt_bind_param($stmt, "si", $state, $hire_id);
+
+
+        $result = mysqli_stmt_execute($stmt);
+
+        if ($result) {
+            return $state === "Yes" ? "Accepted" : "Rejected";
+        } else {
+            return "Failed to update";
+        }
+    }
 }
 ?>

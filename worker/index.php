@@ -9,6 +9,8 @@
     if ($_SESSION['worker_id']) {
       if ($views == 'worker_home') {
         include('views/worker_home-views.php');
+      }elseif($views == 'worker_request'){
+        include('views/worker_requested_work-view.php');
       }
     }else{
       echo "<script>window.location.replace('/../manpowerbd/index.php');</script>";
