@@ -10,18 +10,10 @@ class ManageUser
         $dbname = "manpowerbd";
         $this->conn = mysqli_connect("$dbhost", "$dbuser", "$dbpass", "$dbname");
         if (!$this->conn) {
-?>
-            <script>
-
-            </script>
-        <?php
         } else {
-        ?>
-            <!-- <script>
-                alert("Connection Successfull");
-            </script> -->
-<?php
-
+            echo "<script>
+                console.log('Connection successful');
+            </script>";
         }
     }
 
@@ -62,9 +54,7 @@ class ManageUser
 
                 // Add the average rating to the $row array
                 $row['avg_rating'] = $avgRating;
-                
-            } 
-            else {
+            } else {
                 // Handle query error and set an alert message
                 $errorMessage = "Error executing the query: " . mysqli_error($this->conn);
                 echo '<script>alert("' . $errorMessage . '");</script>';
@@ -81,14 +71,15 @@ class ManageUser
         }
     }
 
-    function user_review($workerId) {
+    function user_review($workerId)
+    {
         $query = "SELECT ht.user_review, ht.user_rating, ht.review_date, us.UserName, us.profileImage
             FROM hire_table ht
             JOIN usersignup us ON ht.userId = us.userId
             WHERE ht.worker_id = $workerId AND ht.payment_status = 'paid'";
-    
+
         $reviews = mysqli_query($this->conn, $query);
-        
+
         if ($reviews) {
             $result = array();
             while ($row = mysqli_fetch_assoc($reviews)) {
@@ -102,7 +93,7 @@ class ManageUser
             return null;
         }
     }
-    
+
 
 
     // pagination 
@@ -127,16 +118,17 @@ class ManageUser
         return $result;
     }
     // find average rating
-    function avg_rating($worker_id){
+    function avg_rating($worker_id)
+    {
         $query = "SELECT AVG(user_rating) AS avg_rating FROM hire_table WHERE worker_id = $worker_id AND user_rating > 0";
         $result = mysqli_query($this->conn, $query);
         if ($result) {
             $ratingRow = mysqli_fetch_assoc($result);
             $avgRating = number_format($ratingRow['avg_rating'], 1);
             return $avgRating;
-        } 
+        }
     }
-    
+
     // search the data 
     function searchWorkers($limit, $offset, $searchInput)
     {
@@ -147,7 +139,8 @@ class ManageUser
     }
 
     // user profile
-    function user_details($user_id){
+    function user_details($user_id)
+    {
         $query = "SELECT *FROM usersignup WHERE userId = $user_id";
         $result = mysqli_query($this->conn, $query);
         if ($result) {
@@ -158,7 +151,8 @@ class ManageUser
         }
     }
 
-    function hiring($data, $uId, $wId) {
+    function hiring($data, $uId, $wId)
+    {
         $hiringDate = date('Y-m-d'); // Use 'Y-m-d' format for MySQL date
         $startDate = $data['working_date'];
         $charge = $data['salary'];
@@ -166,10 +160,10 @@ class ManageUser
         $notification_status = 1;
         $workingType = $data['hiringType'];
         $workingHour = isset($data['hour']) && is_numeric($data['hour']) ? $data['hour'] : 'N/A';
-    
+
         $query = "INSERT INTO hire_table (userId, worker_id, hire_date, start_date, charge, payment_status, notification_status, working_method, working_hour,accept)
                   VALUES ($uId, $wId, '$hiringDate', '$startDate', $charge, '$payment_status', $notification_status, '$workingType', '$workingHour','Pending');";
-    
+
         $result = mysqli_query($this->conn, $query);
         if ($result) {
             return "Success";
@@ -179,31 +173,46 @@ class ManageUser
     }
 
 
-    function pendingList(){
+    function pendingList()
+    {
         $uid = $_SESSION['user_id'];
         $query = "SELECT * FROM pending_worker_hire_details WHERE (accept = 'Pending' OR payment_status = 'Pending') AND userId = $uid;
         ";
         $result = mysqli_query($this->conn, $query);
-        if($result){
+        if ($result) {
             return $result;
-        }else{
+        } else {
             return null;
         }
     }
 
-    function cancel_hire_request($hireID) {
+    function cancel_hire_request($hireID)
+    {
         $query = "DELETE FROM hire_table WHERE hire_id = $hireID";
         $result = mysqli_query($this->conn, $query);
-    
+
         if ($result) {
             return "Success";
         } else {
             return "Error";
         }
     }
-    
-    
+
+    function payment_success($hire_id, $tranId, $tranDate)
+    {
+
+        $query = "UPDATE hire_table
+              SET payment_status = 'Paid',
+                  transactionId = '$tranId',
+                  end_date = '$tranDate'
+              WHERE hire_id = $hire_id";
+
+        $result = mysqli_query($this->conn, $query);
+
+        if ($result) {
+            return "success";
+        } else {
+            return "Error updating payment: " . mysqli_error($this->conn);
+        }
+    }
 }
-
-
-?>

@@ -44,6 +44,8 @@ class Main
                 $_SESSION['user_id'] = $row['userId'];
                 $_SESSION['UserName'] = $row['UserName'];
                 $_SESSION['userPhone'] = $row['userPhone'];
+                $_SESSION['location'] = $row['userAddress'];
+                $_SESSION['email'] = $row['userEmail'];
 
                 // Display the user ID in an alert message
                 echo "<script>console.log('Logged-in user ID: " . $_SESSION['user_id'] . "');</script>";

@@ -1,5 +1,5 @@
 <?php session_start() ?>
-<?php include_once(__DIR__ . '/../userFunction/manageUser.php'); ?>
+<?php include_once(__DIR__ . '/../userfunction/manageUser.php'); ?>
 <?php
 $connectionObj = new ManageUser();
 

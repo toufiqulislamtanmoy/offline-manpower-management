@@ -1,4 +1,4 @@
-<?php include_once(__DIR__ . '/../userFunction/manageUser.php'); ?>
+<?php include_once(__DIR__ . '/../userfunction/manageUser.php'); ?>
 
 <?php
 $connectionObj = new ManageUser();
@@ -61,7 +61,7 @@ if (isset($_POST['cancel_request'])) {
             <p class="card-text"> <span class="fw-bold">Payable Amount: </span> ' . $row['charge'] . ' BDT</p>
             <p class="card-text"> <span class="fw-bold">Working Hour: </span> ' . $row['working_hour'] . '</p>';
       if ($row['accept'] == 'Yes') {
-        echo '<a href="#" class="btn btn-primary">Pay Now</a>';
+        echo '<a href="../../../manpowerbd/user/checkout.php?pay='.$row['charge'].'& hire_id='. $row['hire_id'] .'" class="btn btn-primary">Pay Now</a>';
       } else {
         echo '<div class="d-flex align-items-center justify-content-between">';
         echo '<button disabled class="btn btn-primary fs-6">Pay Now</button>';

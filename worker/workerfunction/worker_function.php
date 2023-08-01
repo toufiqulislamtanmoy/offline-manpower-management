@@ -165,7 +165,7 @@ class WorkerFunction
         $query = "SELECT pwhd.hire_id, pwhd.userId, pwhd.charge, pwhd.payment_status, pwhd.accept, pwhd.working_hour, pwhd.working_method, pwhd.start_date, pwhd.end_date, us.UserName, us.userAddress, us.profileImage
         FROM pending_worker_hire_details pwhd
         JOIN usersignup us ON pwhd.userId = us.userId
-        WHERE pwhd.worker_id = $worker_id AND pwhd.accept='Pending' OR pwhd.payment_status = 'Pending';
+        WHERE pwhd.worker_id = $worker_id AND pwhd.payment_status = 'Pending';
         ";
 
         $result = mysqli_query($this->conn, $query);
