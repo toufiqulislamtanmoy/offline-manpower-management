@@ -1,4 +1,3 @@
-
 <?php include_once(__DIR__ . '/../workerfunction/worker_function.php') ?>
 
 <?php
@@ -62,6 +61,8 @@ if (isset($_GET['active'])) {
                 <div class="py-md-3 ">
                     <div class="my-1 text-center">
                         <img style="height: 220px; width:220px" src="<?php echo $profile['worker_photo']; ?>" class="card-img-top rounded-circle border border-5 border-secondary shadow-lg" alt="...">
+
+                        <h2 class="position-absolute text-white p-3 rounded-4" style="top: 0; left: 60%; background-color: #65787c;"><?php echo $profile['points']; ?></h2>
                     </div>
                     <div class="my-1 text-center">
                         <i class="fa-solid fa-star"></i>
@@ -77,6 +78,9 @@ if (isset($_GET['active'])) {
                         <?php
                         }
                         ?>
+                    </div>
+                    <div class="text-center my-2">
+                        <a class="dropdown-item fw-bold" href="/../manpowerbd/user/logout.php">Log Out <i class="fa-solid fa-right-from-bracket"></i></a>
                     </div>
                     <div class="px-3 text-center mt-2">
                         <h5 class="card-text "><span class="fw-bold">Total Earnings: </span> <?php echo !empty($stringEarnings) ? $stringEarnings : '0'; ?>

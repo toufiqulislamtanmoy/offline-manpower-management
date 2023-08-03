@@ -142,6 +142,10 @@ if (isset($_POST['hire'])) {
                                             <input readonly type="text" class="form-control" id="user_name" name="user_name" value="<?php echo $user['UserName']; ?>">
                                         </div>
                                         <div class="mb-3">
+                                            <label for="location" class="col-form-label">Location:</label>
+                                            <input placeholder="Working Location" type="text" class="form-control" id="location" name="location">
+                                        </div>
+                                        <div class="mb-3">
                                             <label for="working_date" class="col-form-label">Working Date:</label>
                                             <input type="date" class="form-control" id="working_date" name="working_date">
                                         </div>

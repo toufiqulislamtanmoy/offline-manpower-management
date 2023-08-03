@@ -69,7 +69,7 @@ if (isset($_POST['accept_request'])) {
                         <h5 class="d-inline-block"><?php echo $row['UserName']; ?></h5>
                     </span>
                     <p class="card-text">
-                        <span class="fw-bold">Location: </span><?php echo $row['userAddress']; ?>
+                        <span class="fw-bold">Location: </span><?php echo $row['location']; ?>
                     </p>
                     <p class="card-text">
                         <span class="fw-bold">Hire Date: </span><?php echo $row['start_date']; ?>

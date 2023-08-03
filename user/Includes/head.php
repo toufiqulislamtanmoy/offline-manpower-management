@@ -26,4 +26,32 @@
   <!-- My custom css -->
   <link rel="stylesheet" href="../assests/css/main.css">
   <link rel="stylesheet" href="/user/css/main.css">
+
+  <style>
+    .table-wrapper {
+      overflow: scroll;
+      /* Enable vertical scrolling for the wrapper */
+    }
+
+    /* Customize the scrollbar to make it invisible, adjust other properties as needed */
+    .table-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+
+   <!--Start of Tawk.to Script-->
+   <script type="text/javascript">
+    var Tawk_API = Tawk_API || {},
+      Tawk_LoadStart = new Date();
+    (function() {
+      var s1 = document.createElement("script"),
+        s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/64cb3fc194cf5d49dc681fd4/1h6sv23tj';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
 </head>

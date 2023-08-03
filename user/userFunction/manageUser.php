@@ -156,13 +156,14 @@ class ManageUser
         $hiringDate = date('Y-m-d'); // Use 'Y-m-d' format for MySQL date
         $startDate = $data['working_date'];
         $charge = $data['salary'];
+        $location = $data['location'];
         $payment_status = "Pending";
         $notification_status = 1;
         $workingType = $data['hiringType'];
         $workingHour = isset($data['hour']) && is_numeric($data['hour']) ? $data['hour'] : 'N/A';
 
-        $query = "INSERT INTO hire_table (userId, worker_id, hire_date, start_date, charge, payment_status, notification_status, working_method, working_hour,accept)
-                  VALUES ($uId, $wId, '$hiringDate', '$startDate', $charge, '$payment_status', $notification_status, '$workingType', '$workingHour','Pending');";
+        $query = "INSERT INTO hire_table (userId, worker_id, hire_date, start_date, charge, payment_status, notification_status, working_method, working_hour,accept,location)
+                  VALUES ($uId, $wId, '$hiringDate', '$startDate', $charge, '$payment_status', $notification_status, '$workingType', '$workingHour','Pending','$location')";
 
         $result = mysqli_query($this->conn, $query);
         if ($result) {
@@ -200,12 +201,11 @@ class ManageUser
 
     function payment_success($hire_id, $tranId, $tranDate)
     {
-
         $query = "UPDATE hire_table
-              SET payment_status = 'Paid',
-                  transactionId = '$tranId',
-                  end_date = '$tranDate'
-              WHERE hire_id = $hire_id";
+                  SET payment_status = 'Paid',
+                      transactionId = '$tranId',
+                      end_date = '$tranDate'
+                  WHERE hire_id = $hire_id";
 
         $result = mysqli_query($this->conn, $query);
 
@@ -213,6 +213,72 @@ class ManageUser
             return "success";
         } else {
             return "Error updating payment: " . mysqli_error($this->conn);
+        }
+    }
+
+
+    function add_feedback($hire_id, $data)
+    {
+        $rating = $data['rating'];
+        $review = $data['review'];
+
+        // Round the rating based on the fractional part
+        if (($rating - floor($rating)) > 0.5) {
+            $rating = ceil($rating); // If fractional part > 0.5, ceil the rating
+        } else {
+            $rating = floor($rating); // If fractional part <= 0.5, floor the rating
+        }
+
+        // Now $roundedRating contains the rounded value of the rating
+        // You can use $roundedRating in your code for further processing
+
+
+        // Use prepared statements to avoid SQL injection
+        $query = "UPDATE hire_table
+              SET user_rating = ?,
+                  user_review = ?,
+                  review_date = CURDATE()
+              WHERE hire_id = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("isi", $rating, $review, $hire_id);
+
+        if ($stmt->execute()) {
+            $findWorkerQuery = "SELECT worker_id FROM hire_table WHERE hire_id = $hire_id";
+            $result = mysqli_query($this->conn, $findWorkerQuery);
+            if ($result && mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_assoc($result);
+                $workerId =  $row['worker_id'];
+
+                $updatePointQuery = "UPDATE workersignup
+                SET points = CASE
+                    WHEN $rating < 3 THEN points + 10
+                    WHEN $rating >= 3 AND $rating <= 4 THEN points + 25
+                    WHEN $rating > 4 THEN points + 50
+                    ELSE points
+                END
+                WHERE worker_id = $workerId";
+
+                $pointUpdateResult = mysqli_query($this->conn, $updatePointQuery);
+
+                if ($pointUpdateResult) {
+                    return "success";
+                }
+            }
+        } else {
+            return "Error updating feedback: " . $stmt->error;
+        }
+    }
+
+
+    function hiring_history($uId){
+        $query = "SELECT * From pending_worker_hire_details
+        WHERE userId = $uId AND payment_status = 'Paid'
+        ";
+
+        $result = mysqli_query($this->conn, $query);
+        if($result){
+            return $result;
         }
     }
 }

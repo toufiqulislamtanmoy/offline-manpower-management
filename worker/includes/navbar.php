@@ -22,7 +22,7 @@ $notificationDEtails = $connectionObj->notification_details($wID);
           <a class="nav-link" href="/../manpowerbd/worker/worker_requested_work.php">Requested Work</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Work History</a>
+          <a class="nav-link" href="/../manpowerbd/worker/worker_work_history.php">Work History</a>
         </li>
       </ul>
       <div>
@@ -51,7 +51,7 @@ $notificationDEtails = $connectionObj->notification_details($wID);
                 <?php if($notificationDEtails != 'No Notifications Found'){ 
                 foreach ($notificationDEtails as $detail) : ?>
                   <p class="card-text">
-                    <span class="fw-bold"><?php echo $detail; ?></span> send you a hiring request.
+                    <a class="text-secondary" href="/../manpowerbd/worker/worker_requested_work.php"><span class="fw-bold"><?php echo $detail; ?></span> send you a hiring request.</a>
                   </p>
                 <?php endforeach; }else{ ?> 
                   <p class="card-text">

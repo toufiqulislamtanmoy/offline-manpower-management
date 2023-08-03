@@ -20,6 +20,9 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="pendingList.php">Pending List</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="hiring_history.php">Hiring History</a>
+            </li>
            
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

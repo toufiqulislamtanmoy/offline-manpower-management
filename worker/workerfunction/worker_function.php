@@ -27,7 +27,7 @@ class WorkerFunction
     function WorkerProfile($wId)
     {
         $workerId = $wId['id'];
-        $query1 = "SELECT worker_full_name, worker_photo, present_address, workerType, gender,points,worker_status,worker_phone_number FROM workersignup WHERE worker_id = $workerId";
+        $query1 = "SELECT worker_full_name, worker_photo, present_address, workerType, gender,points,worker_status,worker_phone_number,points FROM workersignup WHERE worker_id = $workerId";
         $WorkerProfileResult = mysqli_query($this->conn, $query1);
 
         $query = "SELECT AVG(user_rating) AS avg_rating FROM hire_table WHERE worker_id = $workerId AND user_rating > 0";
@@ -162,7 +162,7 @@ class WorkerFunction
 
     function worker_request_list($worker_id)
     {
-        $query = "SELECT pwhd.hire_id, pwhd.userId, pwhd.charge, pwhd.payment_status, pwhd.accept, pwhd.working_hour, pwhd.working_method, pwhd.start_date, pwhd.end_date, us.UserName, us.userAddress, us.profileImage
+        $query = "SELECT pwhd.hire_id, pwhd.userId, pwhd.charge, pwhd.payment_status, pwhd.accept, pwhd.working_hour, pwhd.working_method, pwhd.start_date, pwhd.end_date,pwhd.location, us.UserName, us.userAddress, us.profileImage
         FROM pending_worker_hire_details pwhd
         JOIN usersignup us ON pwhd.userId = us.userId
         WHERE pwhd.worker_id = $worker_id AND pwhd.payment_status = 'Pending';
@@ -200,6 +200,19 @@ class WorkerFunction
             return $state === "Yes" ? "Accepted" : "Rejected";
         } else {
             return "Failed to update";
+        }
+    }
+
+    function work_history($wId){
+        $query = "SELECT h.*, u.UserName
+        FROM hire_table h
+        JOIN usersignup u ON h.userId  = u.userId
+        WHERE h.worker_id = $wId AND h.payment_status = 'Paid'
+        ";
+
+        $result = mysqli_query($this->conn, $query);
+        if($result){
+            return $result;
         }
     }
 }

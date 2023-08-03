@@ -11,6 +11,8 @@
         include('views/worker_home-views.php');
       }elseif($views == 'worker_request'){
         include('views/worker_requested_work-view.php');
+      }elseif($views == 'work_history'){
+        include('views/worker_work_history-view.php');
       }
     }else{
       echo "<script>window.location.replace('/../manpowerbd/index.php');</script>";

@@ -22,6 +22,8 @@ include('Includes/head.php');
         include('Views/pendingList-view.php');
       } else if ($views == 'checkout') {
         include('Views/checkout-view.php');
+      }elseif($views == 'hiring_history'){
+        include('Views/hiring_history-view.php');
       }
     }else{
       echo "<script>window.location.replace('/../manpowerbd/index.php');</script>";

@@ -36,6 +36,23 @@ if (isset($_SESSION['user_id'])) {
   <script src="https://kit.fontawesome.com/2137699d39.js" crossorigin="anonymous"></script>
   <!-- My custom css -->
   <link rel="stylesheet" href="assests/css/main.css">
+
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {},
+      Tawk_LoadStart = new Date();
+    (function() {
+      var s1 = document.createElement("script"),
+        s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/64cb3fc194cf5d49dc681fd4/1h6sv23tj';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
 </head>
 
 <body>
@@ -86,14 +103,13 @@ if (isset($_SESSION['user_id'])) {
             </button>
           <?php } else { ?>
             <div class="dropdown">
-              <img style="height: 44px; width:44px; cursor: pointer;" 
-              src="<?php
-              if (isset($_SESSION['worker_photo'])) {
-                echo $_SESSION['worker_photo'];
-              } elseif (isset($user['profileImage'])) {
-                echo $user['profileImage'];
-              }
-              ?>" alt="not found" class="dropdown-toggle rounded-circle border border-3 " data-bs-toggle="dropdown" aria-expanded="false" />
+              <img style="height: 44px; width:44px; cursor: pointer;" src="<?php
+                                                                            if (isset($_SESSION['worker_photo'])) {
+                                                                              echo $_SESSION['worker_photo'];
+                                                                            } elseif (isset($user['profileImage'])) {
+                                                                              echo $user['profileImage'];
+                                                                            }
+                                                                            ?>" alt="not found" class="dropdown-toggle rounded-circle border border-3 " data-bs-toggle="dropdown" aria-expanded="false" />
               <ul class="dropdown-menu">
                 <?php
                 if (isset($user['profileImage'])) { ?>
@@ -253,7 +269,7 @@ if (isset($_SESSION['user_id'])) {
               <a class="text-decoration-none" href="https://toufiqulislamtanmoy.web.app/" target="_blank">
                 <img class="prof-img" src="assests/img/team/0.png" alt="">
                 <h5 class="fs-3 fw-bold font-M text-white my-1">Toufiqul Islam Tanmoy</h5>
-                <p class=" text-white">Founder & Developer</p>
+                <p class=" text-white">Full Stack Developer</p>
               </a>
             </div>
           </div>
