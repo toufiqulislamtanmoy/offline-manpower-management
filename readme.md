@@ -6,10 +6,8 @@
 
 ## Demo
 
-<video controls width="100%">
-  <source src="https://www.youtube.com/embed/kl0n70nQw8w" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[![Preview](https://i.ibb.co/ZfhJ14J/Screenshot-2023-08-12-182521.png)](https://www.youtube.com/embed/kl0n70nQw8w)
+
 
 
 
