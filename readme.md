@@ -6,7 +6,11 @@
 
 ## Demo
 
-[![Demo Video](https://img.youtube.com/vi/abc123/0.jpg)](https://www.youtube.com/embed/kl0n70nQw8w)
+<video controls width="100%">
+  <source src="https://www.youtube.com/embed/kl0n70nQw8w" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 
 
 
