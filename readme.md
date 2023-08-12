@@ -4,6 +4,12 @@
   <img src="https://i.ibb.co/fd5DsjF/Manpower-BD-1-removebg-preview-1.png" alt="Manpower Management System Logo">
 </p>
 
+## Demo
+
+[![Demo Video](https://img.youtube.com/vi/abc123/0.jpg)](https://www.youtube.com/embed/kl0n70nQw8w)
+
+
+
 ## Connect with Us
 
 Find us on social media:
