@@ -1,6 +1,6 @@
 # Manpower Management System Documentation
 
-![Manpower Management System](https://i.ibb.co/G0NNFGh/logo.png)
+![Manpower Management System](https://i.ibb.co/Z8F8xd6/Manpower-BD-1.png)
 
 ## Connect with Us
 
@@ -30,6 +30,30 @@ The Manpower Management System is a web application designed to streamline the p
   - [Notification Bell](#notification-bell)
   - [Toggle Online Status](#toggle-online-status)
   - [Logout](#logout)
+
+  ### Profile
+
+In the worker interface, workers can sign up or log in to access their dashboard. The dashboard includes a navigation bar with various items.
+
+### Requested Work
+
+This section displays all the work requests for the worker. Workers have the option to accept or reject these work requests.
+
+### Work History
+
+The "Work History" section provides workers with a list of all their completed work, along with transaction details.
+
+### Notification Bell
+
+Located in the top right corner, the notification bell alerts workers to new work requests.
+
+### Toggle Online Status
+
+Workers can toggle their online status between active and inactive.
+
+### Logout
+
+The "Logout" option allows workers to log out of their account.
 
 ## User Dashboard
 
