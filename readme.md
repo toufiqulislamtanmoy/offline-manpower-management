@@ -16,8 +16,9 @@
 
 Find us on social media:
 
-[![GitHub](https://i.ibb.co/s1sYTdM/octocat-symbol-logo-variant.png)](https://github.com/toufiqulislamtanmoy)
-[![Facebook](https://i.ibb.co/c1HRSwq/facebook-logo.png)](https://www.facebook.com/toufiqulislamtanmoy)
+<a href="https://github.com/toufiqulislamtanmoy"><img src="https://i.ibb.co/s1sYTdM/octocat-symbol-logo-variant.png" width="30" alt="GitHub"></a>
+<a href="https://www.facebook.com/toufiqulislamtanmoy"><img src="https://i.ibb.co/c1HRSwq/facebook-logo.png" width="30" alt="Facebook"></a>
+
 
 
 
