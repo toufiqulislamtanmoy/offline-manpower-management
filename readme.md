@@ -1,6 +1,8 @@
 # Manpower Management System Documentation
 
-![Manpower Management System](https://i.ibb.co/fd5DsjF/Manpower-BD-1-removebg-preview-1.png)
+<p align="center">
+  <img src="https://i.ibb.co/fd5DsjF/Manpower-BD-1-removebg-preview-1.png" alt="Manpower Management System Logo">
+</p>
 
 ## Connect with Us
 
@@ -39,7 +41,21 @@ The Manpower Management System is a web application designed to streamline the p
 
 The "Find Worker" section allows users to browse registered workers. Each worker is presented in a card format with a "View Details" button for more information. Users can also utilize the search bar to filter workers based on name, location, or worker type.
 
-<!-- Add descriptions for other sections -->
+### Pending List
+
+The "Pending List" displays the work requests that users have made. Until a worker accepts or rejects the request, it will be listed here. Users also have the option to cancel a hiring request while it's pending. Once the worker accepts the request, a "Pay" button will be enabled, allowing users to pay for the completed task.
+
+### Hiring History
+
+The "Hiring History" section provides users with a comprehensive list of their previous hiring activities. It includes transaction details and other relevant information about the hired workers.
+
+### Profile
+
+The "Profile" section allows users to view and update their personal details. Users can keep their information up-to-date and ensure that they have a complete and accurate profile.
+
+### Logout
+
+By clicking the "Logout" option, users can securely log out of their accounts, ensuring the safety of their data and privacy.
 
 ## Worker Dashboard
 
