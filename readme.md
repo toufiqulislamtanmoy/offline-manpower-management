@@ -1,6 +1,6 @@
 # Manpower Management System Documentation
 
-![Manpower Management System](https://i.ibb.co/Z8F8xd6/Manpower-BD-1.png)
+![Manpower Management System](https://i.ibb.co/fd5DsjF/Manpower-BD-1-removebg-preview-1.png)
 
 ## Connect with Us
 
@@ -31,7 +31,19 @@ The Manpower Management System is a web application designed to streamline the p
   - [Toggle Online Status](#toggle-online-status)
   - [Logout](#logout)
 
-  ### Profile
+ 
+
+## User Dashboard
+
+### Find Worker
+
+The "Find Worker" section allows users to browse registered workers. Each worker is presented in a card format with a "View Details" button for more information. Users can also utilize the search bar to filter workers based on name, location, or worker type.
+
+<!-- Add descriptions for other sections -->
+
+## Worker Dashboard
+
+ ### Profile
 
 In the worker interface, workers can sign up or log in to access their dashboard. The dashboard includes a navigation bar with various items.
 
@@ -54,18 +66,6 @@ Workers can toggle their online status between active and inactive.
 ### Logout
 
 The "Logout" option allows workers to log out of their account.
-
-## User Dashboard
-
-### Find Worker
-
-The "Find Worker" section allows users to browse registered workers. Each worker is presented in a card format with a "View Details" button for more information. Users can also utilize the search bar to filter workers based on name, location, or worker type.
-
-<!-- Add descriptions for other sections -->
-
-## Worker Dashboard
-
-<!-- Add descriptions for worker dashboard sections -->
 
 ## Conclusion
 
