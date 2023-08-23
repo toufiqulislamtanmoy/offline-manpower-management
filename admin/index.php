@@ -6,6 +6,8 @@
     $data = new Test();
     $user_value = $data->user_count();
     $worker_value = $data->worker_count();
+    $revenue = $data->revenue();
+    $profit = $data->total_profit();
     
     
 
@@ -52,7 +54,7 @@
                                                         <div class="card-block">
                                                             <h6 class="m-b-20">Revenue</h6>
                                                             <h2 class="text-right"><i
-                                                                    class="ti-reload f-left"></i><span>$42,562</span>
+                                                                    class="ti-reload f-left"></i><span><?php echo $revenue; ?></span>
                                                             </h2>
                                                             <p class="m-b-0">This Month<span
                                                                     class="f-right">$5,032</span></p>
@@ -64,7 +66,7 @@
                                                         <div class="card-block">
                                                             <h6 class="m-b-20">Total Profit</h6>
                                                             <h2 class="text-right"><i
-                                                                    class="ti-layout-sidebar-left f-left"></i><span>$9,562</span>
+                                                                    class="ti-layout-sidebar-left f-left"></i><span><?php echo $profit; ?></span>
                                                             </h2>
                                                             <p class="m-b-0">This Month<span class="f-right">$542</span>
                                                             </p>
