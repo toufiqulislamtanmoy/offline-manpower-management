@@ -8,6 +8,7 @@
     $worker_value = $data->worker_count();
     $revenue = $data->revenue();
     $profit = $data->total_profit();
+    $user_joined = $data->users_joined_this_month();
     
     
 
@@ -31,7 +32,7 @@
                                                             <h6 class="m-b-20">Total User</h6>
                                                             <h2 class="text-right"><i
                                                                     class="ti-user f-left"></i><span><?php echo $user_value; ?></span></h2>
-                                                            <p class="m-b-0">This Month<span class="f-right">213</span>
+                                                            <p class="m-b-0">This Month<span class="f-right"><?php echo $user_joined; ?></span>
                                                             </p>
                                                         </div>
                                                     </div>

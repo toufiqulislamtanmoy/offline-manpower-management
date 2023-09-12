@@ -32,6 +32,24 @@ class Test{
             return 0;
         }
     }
+
+    function users_joined_this_month()
+{
+    $currentMonth = date('m'); // Get the current month in numeric format (e.g., '08' for August)
+    $query = "SELECT COUNT(*) as joined_this_month FROM usersignup WHERE MONTH(Time) = '$currentMonth'";
+    $result = mysqli_query($this->conn, $query);
+
+    if ($result) {
+        // Fetch the result as an associative array
+        $row = mysqli_fetch_assoc($result);
+
+        // Return the count of users who joined this month as an integer
+        return (int) $row['joined_this_month'];
+    } else {
+        return 0;
+    }
+}
+
     
 
     function worker_count()
@@ -49,6 +67,25 @@ class Test{
         return 0;
     }
 }
+
+
+function work_completed_this_month()
+{
+    $currentMonth = date('m'); // Get the current month in numeric format (e.g., '08' for August)
+    $query = "SELECT COUNT(*) as joined_this_month FROM usersignup WHERE MONTH(Time) = '$currentMonth'";
+    $result = mysqli_query($this->conn, $query);
+
+    if ($result) {
+        // Fetch the result as an associative array
+        $row = mysqli_fetch_assoc($result);
+
+        // Return the count of users who joined this month as an integer
+        return (int) $row['joined_this_month'];
+    } else {
+        return 0;
+    }
+}
+
 
 function revenue()
 {
